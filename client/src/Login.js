@@ -32,10 +32,10 @@ function Login() {
     })
       .then(res => {
         if (res.ok) {
-          res.json().then(userData => {
-            console.log(userData)
-            setUser(userData)
-            history.push(`/users/${user.id}`)
+          res.json().then(user => {
+            console.log(user)
+            setUser(user)
+            // history.push(`/users/${user.id}`)
           })
         } else {
           res.json().then(json => setErrors(json.errors))

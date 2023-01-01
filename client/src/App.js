@@ -18,9 +18,9 @@ function App() {
           <Route exact path="/">
             <Login />
           </Route>
-          <Route exact path={`/users/${user.id}`}>
+          {/* <Route exact path={`/users/${user.id}`}>
             <Home user={user} handleUser={handleUser} showUser={showUser} />
-          </Route>
+          </Route> */}
         </Switch>
       </div>
   );

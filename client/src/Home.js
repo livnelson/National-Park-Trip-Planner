@@ -7,7 +7,7 @@ function Home({ user, handleUser, showUser }) {
   return (
     <div>
       <div>
-        <h1>Welcome, {}!</h1>
+        <h1>Welcome, {user.first_name}!</h1>
         <button onClick={handleUser}>
           {showUser ? "Back to Home" : "View Profile"}
         </button>
