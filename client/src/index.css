@@ -1,4 +1,5 @@
 body {
+  background-color: #f3f3f3;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -12,8 +13,92 @@ code {
     monospace;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, p {
   margin: 0;
   padding: 5px;
   line-height: 1;
+}
+
+a {
+  color: #337152;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #1c422f;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.errors {
+  text-align: center;
+  font-size: 15px;
+  color:crimson;
+  margin-top: 20px;
+}
+
+/* LOG IN FORM */
+
+.login-card {
+  background-color: #ffffff;
+  margin:auto;
+  margin-top:100px;
+  width: 360px;
+  border: 0px solid;
+  border-radius: 4px;
+  font-size: 12px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.login-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.input-field {
+  width: 300px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 6px;
+  border: 1px solid;
+  border-color: #dddddd;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.input-field:hover,
+.input-field:active,
+.input-field:focus,
+.input-field:focus-visible,
+.input-field:focus-within {
+  border-color: #337152;
+}
+
+.button {
+  color: white;
+  background-color: black;
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  border: 0px solid;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.button:hover {
+  background-color: #337152;
+  cursor: pointer;
+}
+
+.create-acc-link {
+  font-size: 10px;
+  text-align: center;
+  padding-top: 10px;
 }

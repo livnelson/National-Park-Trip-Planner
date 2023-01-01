@@ -1,29 +1,28 @@
-// client/src/components/App.js
 import { useState, useEffect } from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
+import Login from './Login'
+import Home from './Home'
 
 function App() {
-  const [count, setCount] = useState(0);
 
-  useEffect(() => {
-    fetch("/hello")
-      .then((r) => r.json())
-      .then((data) => setCount(data.count));
-  }, []);
+  const [user, setUser] = useState({});
+  const [showUser, setShowUser] = useState(false);
+
+  function handleUser() {
+    setShowUser(!showUser);
+  }
 
   return (
-    <BrowserRouter>
-      <div className="App">
+      <div >
         <Switch>
-          <Route path="/testing">
-            <h1>Test Route</h1>
+          <Route exact path="/">
+            <Login />
           </Route>
-          <Route path="/">
-            <h1>Page Count: {count}</h1>
+          <Route exact path={`/users/${user.id}`}>
+            <Home user={user} handleUser={handleUser} showUser={showUser} />
           </Route>
         </Switch>
       </div>
-    </BrowserRouter>
   );
 }
 
