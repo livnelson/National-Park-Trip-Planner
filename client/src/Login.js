@@ -35,7 +35,7 @@ function Login() {
           res.json().then(user => {
             console.log(user)
             setUser(user)
-            // history.push(`/users/${user.id}`)
+            history.push(`/users/${user.id}`)
           })
         } else {
           res.json().then(json => setErrors(json.errors))
@@ -82,7 +82,7 @@ function Login() {
       </div>
       <p className="create-acc-link">Need an account? <a href="/CreateUser">Create one here!</a></p>
       {errors ? <div className="errors">{errors}</div> : null}
-      <Home user={user} handleUser={handleUser} showUser={showUser} />
+      {/* <Home user={user} handleUser={handleUser} showUser={showUser} /> */}
     </div>
   )
 }
