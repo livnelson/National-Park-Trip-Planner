@@ -67,10 +67,11 @@ function CreateUser() {
   return (
     <div>
       <div className="create-user-card">
+        <img src={"./road-trip-logo.png"} alt="Road Trip" className='logo-image' />
         <div className="create-user-form">
           <form onSubmit={handleSubmit}>
             <input
-              className="input-field"
+              className="create-input-field"
               name="username"
               type="text"
               value={username}
@@ -80,7 +81,7 @@ function CreateUser() {
             />
             <br />
             <input
-              className="input-field"
+              className="create-input-field"
               name="password"
               type="password"
               value={password}
@@ -90,7 +91,7 @@ function CreateUser() {
             />
             <br />
             <input
-              className="input-field"
+              className="create-input-field"
               name="first_name"
               type="text"
               value={firstName}
@@ -100,7 +101,7 @@ function CreateUser() {
             />
             <br />
             <input
-              className="input-field"
+              className="create-input-field"
               name="last_name"
               type="text"
               value={lastName}
@@ -110,7 +111,7 @@ function CreateUser() {
             />
             <br />
             <input
-              className="input-field"
+              className="create-input-field"
               name="profile_img"
               value={profileImg}
               placeholder="Enter Profile Img URL Here"
@@ -119,16 +120,10 @@ function CreateUser() {
             />
             <br />
             <button className="button" type="submit">Create Account</button>
-
-            <p className="back-arrow">
-              ←
-              <span className="back-words">
-                <Link to="/">Back to Login Page</Link>
-              </span>
-            </p>
-
           </form>
         </div>
+          {/* {errors ? <div className="errors">{errors}</div> : null} */}
+          <p className="back-link"><Link to="/">← Back to Log In</Link></p>
       </div>
     </div>
   )
