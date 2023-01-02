@@ -30,8 +30,8 @@ function Login({ setIsLoggedIn }) {
         if (res.ok) {
           res.json().then(user => {
             console.log(user)
-            setUser(user)
             setIsLoggedIn(true)
+            setUser(user)
             history.push(`/users/${user.id}`)
           })
         } else {

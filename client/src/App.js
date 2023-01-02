@@ -22,9 +22,9 @@ function App() {
       <Switch>
         <Route exact path="/">
           <Login setIsLoggedIn={setIsLoggedIn} />
-          <Route path="CreateUser">
-            <CreateUser />
-          </Route>
+        </Route>
+        <Route path="/CreateUser">
+          <CreateUser />
         </Route>
         <Route path={`/users/${user.id}`}>
           <Navbar user={user} setIsLoggedIn={setIsLoggedIn} />

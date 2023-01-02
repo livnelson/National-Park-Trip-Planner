@@ -5,14 +5,14 @@ import CreateTrip from './CreateTrip'
 function Home({ user }) {
   const [parks, setParks] = useState([])
 
-  // useEffect(() => {
-  //   fetch("https://developer.nps.gov/api/v1/parks?api_key=ejj9Xj8WF8yyAFJIN0Ev3IL3cZrsbkT6CCg0JJ5s")
-  //     .then((r) => r.json())
-  //     .then((parksArray) => {
-  //       console.log(parksArray);
-  //       setParks(parksArray)
-  //     });
-  // }, []);
+  useEffect(() => {
+    fetch("https://developer.nps.gov/api/v1/parks?api_key=ejj9Xj8WF8yyAFJIN0Ev3IL3cZrsbkT6CCg0JJ5s")
+      .then((r) => r.json())
+      .then((parksArray) => {
+        console.log(parksArray);
+        setParks(parksArray)
+      });
+  }, []);
 
   return (
     <div className='home-page'>
