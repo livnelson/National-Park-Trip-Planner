@@ -1,29 +1,37 @@
-// client/src/components/App.js
 import { useState, useEffect } from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
+import Login from './Login'
+import CreateUser from './CreateUser'
+import Home from './Home'
+import Navbar from "./Navbar";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, setUser] = useState({});
 
   useEffect(() => {
-    fetch("/hello")
-      .then((r) => r.json())
-      .then((data) => setCount(data.count));
+    fetch("/me").then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user));
+      }
+    });
   }, []);
 
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Switch>
-          <Route path="/testing">
-            <h1>Test Route</h1>
-          </Route>
-          <Route path="/">
-            <h1>Page Count: {count}</h1>
-          </Route>
-        </Switch>
-      </div>
-    </BrowserRouter>
+    <div>
+      <Switch>
+        <Route exact path="/">
+          <Login setIsLoggedIn={setIsLoggedIn} />
+        </Route>
+        <Route path="/CreateUser">
+          <CreateUser />
+        </Route>
+        <Route path={`/users/${user.id}`}>
+          <Navbar user={user} setIsLoggedIn={setIsLoggedIn} />
+          <Home user={user} isLoggedIn={isLoggedIn} />
+        </Route>
+      </Switch>
+    </div>
   );
 }
 
