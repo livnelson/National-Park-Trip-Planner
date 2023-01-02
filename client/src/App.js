@@ -19,7 +19,6 @@ function App() {
 
   return (
     <div>
-      {/* <Navbar setIsLoggedIn={setIsLoggedIn} /> */}
       <Switch>
         <Route exact path="/">
           <Login setIsLoggedIn={setIsLoggedIn} />
