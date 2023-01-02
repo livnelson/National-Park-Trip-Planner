@@ -2,26 +2,39 @@ import { useState, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
 import Login from './Login'
 import Home from './Home'
+import Navbar from "./Navbar";
 
 function App() {
-
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState({});
-  const [showUser, setShowUser] = useState(false);
+  // const [showUser, setShowUser] = useState(false);
 
-  function handleUser() {
-    setShowUser(!showUser);
-  }
+  // function handleUser() {
+  //   setShowUser(!showUser);
+  // }
+
+  useEffect(() => {
+    // auto-login
+    fetch("/me").then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user));
+      }
+    });
+  }, []);
 
   return (
-    <div >
-        <Switch>
-          <Route exact path="/">
-            <Login />
-          </Route>
-          <Route exact path={`/users/${user.id}`}>
-            <Home user={user} handleUser={handleUser} showUser={showUser} />
-          </Route>
-        </Switch>
+    <div>
+      <Navbar setIsLoggedIn={setIsLoggedIn} />
+      <Switch>
+        <Route exact path="/">
+          <Login setIsLoggedIn={setIsLoggedIn} />
+        </Route>
+        <Route exact path="/Home">
+          {/* <Navbar setIsLoggedIn={setIsLoggedIn} /> */}
+          <Home user={user} isLoggedIn={isLoggedIn} />
+          {/* <Home user={user} handleUser={handleUser} showUser={showUser} isLoggedIn={isLoggedIn} /> */}
+        </Route>
+      </Switch>
     </div>
   );
 }

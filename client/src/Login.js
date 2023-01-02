@@ -1,17 +1,16 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Home from './Home'
 
 
-function Login() {
+function Login({ setIsLoggedIn }) {
   const [user, setUser] = useState({})
   const [errors, setErrors] = useState([])
   const [formData, setFormData] = useState({
     username: '',
     password: ''
   })
-  const [showUser, setShowUser] = useState(false);
-
 
   const history = useHistory()
 
@@ -24,7 +23,6 @@ function Login() {
       password
     }
 
-    // Logs in user
     fetch(`/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -35,7 +33,8 @@ function Login() {
           res.json().then(user => {
             console.log(user)
             setUser(user)
-            history.push(`/users/${user.id}`)
+            setIsLoggedIn(true)
+            history.push(`/Home`)
           })
         } else {
           res.json().then(json => setErrors(json.errors))
@@ -48,20 +47,18 @@ function Login() {
     setFormData({ ...formData, [name]: value })
   }
 
-  function handleUser() {
-    setShowUser(!showUser);
-  }
-
   return (
     <div>
       <div className="login-card">
+        <img src={"./road-trip-logo.png"} alt="Road Trip" className='logo-image'/>
         <div className="login-form">
           <form onSubmit={onSubmit}>
             <input
               className="input-field"
               name="username"
-              placeholder="Enter Username"
+              type="text"
               value={username}
+              placeholder="Enter Username"
               onChange={handleChange}
               required
             />
@@ -70,19 +67,18 @@ function Login() {
               className="input-field"
               name="password"
               type="password"
-              placeholder="Enter Password"
               value={password}
+              placeholder="Enter Password"
               onChange={handleChange}
               required
             />
             <br />
             <button className="button" type="submit">Log In</button>
           </form>
-        </div>
       </div>
-      <p className="create-acc-link">Need an account? <a href="/CreateUser">Create one here!</a></p>
       {errors ? <div className="errors">{errors}</div> : null}
-      {/* <Home user={user} handleUser={handleUser} showUser={showUser} /> */}
+      <p className="create-acc-link"> Need an account? <a href="/CreateUser">Create one here!</a></p>
+        </div>
     </div>
   )
 }

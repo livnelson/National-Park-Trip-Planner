@@ -1,17 +1,30 @@
 body {
-  background-color: #f3f3f3;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  margin-top: 80;
+  /* background-color: #f3f3f3; */
+  background-image: url('https://images.unsplash.com/photo-1536420124392-79a70082fbe5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Zm9yZXN0JTIwcm9hZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60');
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  font-family: sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+
+/* NAVBAR */
+
+.navbar {
+  /* background-color: white; */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  text-align : center;
+  color: white;
 }
+
+
+/*  GLOBAL STYLING */
 
 h1, h2, h3, h4, h5, h6, p {
   margin: 0;
@@ -22,6 +35,8 @@ h1, h2, h3, h4, h5, h6, p {
 a {
   color: #337152;
   text-decoration: none;
+  font-weight: 300;
+
 }
 
 a:hover {
@@ -30,12 +45,7 @@ a:hover {
   cursor: pointer;
 }
 
-.errors {
-  text-align: center;
-  font-size: 15px;
-  color:crimson;
-  margin-top: 20px;
-}
+
 
 /* LOG IN FORM */
 
@@ -56,6 +66,14 @@ a:hover {
   align-items: center;
   padding-top: 20px;
   padding-bottom: 20px;
+}
+
+.logo-image {
+  display: flex;
+  max-width: 40%;
+  margin: auto;
+  padding-top: 20px;
+  padding-bottom: 5px;
 }
 
 .input-field {
@@ -79,12 +97,28 @@ a:hover {
   border-color: #337152;
 }
 
+.create-acc-link {
+  font-size: 11px;
+  text-align: center;
+  padding-bottom: 14px;
+}
+
+.errors {
+  text-align: center;
+  font-size: 15px;
+  color:crimson;
+  margin: 0;
+}
+
+
+
+/*  BUTTONS  */
+
 .button {
   color: white;
   background-color: black;
   width: 100%;
   margin-top: 5px;
-  margin-bottom: 5px;
   padding-top: 6px;
   padding-bottom: 6px;
   border: 0px solid;
@@ -97,8 +131,17 @@ a:hover {
   cursor: pointer;
 }
 
-.create-acc-link {
-  font-size: 10px;
-  text-align: center;
-  padding-top: 10px;
+
+
+/*  HOME PAGE */
+
+.home-page{
+  background-color: white;
+  margin-top: 80px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  border: 0px solid;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
