@@ -16,10 +16,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_01_043437) do
 
   create_table "trips", force: :cascade do |t|
     t.string "destination"
-    t.integer "lat"
-    t.integer "lng"
-    t.date "start_date"
-    t.date "end_date"
+    t.string "start_date"
+    t.string "end_date"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

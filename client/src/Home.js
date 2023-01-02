@@ -22,7 +22,7 @@ function Home({ user }) {
       <UserTrips />
       <br />
       <h3 className='subheading'>Plan a Visit</h3>
-      <CreateTrip parks={parks} />
+      <CreateTrip user={user} />
     </div>
   );
 }
