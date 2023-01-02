@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   post "/create", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   post "/newtrip", to: "trips#create"
+  get "/alltrips", to: "trips#index"
 end

@@ -19,7 +19,7 @@ function Home({ user }) {
       <h1 className='greeting'>Welcome, {user.first_name}!</h1>
       <br />
       <h3 className='subheading'>Your Saved Trips</h3>
-      <UserTrips />
+      <UserTrips user={user} />
       <br />
       <h3 className='subheading'>Plan a Visit</h3>
       <CreateTrip user={user} />
