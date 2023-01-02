@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink, Link, useHistory } from "react-router-dom";
 
-function Navbar({ setIsLoggedIn }) {
+function Navbar({ user, setIsLoggedIn }) {
     const history = useHistory();
 
     function handleLogout() {
@@ -15,7 +15,12 @@ function Navbar({ setIsLoggedIn }) {
 
     return (
         <div className="navbar">
-            <NavLink
+                    <img
+          className="avatar"
+          src={user.profile_img}
+          alt={user.username}
+        />
+            {/* <NavLink
                 to="/Home"
                 exact
                 className="nav-link"
@@ -26,10 +31,9 @@ function Navbar({ setIsLoggedIn }) {
                 exact
                 className="nav-link"
             > Log In
-            </NavLink>
+            </NavLink> */}
             <Link
                 to="/"
-                exact
                 onClick={handleLogout}
                 className="nav-link"
             > Log Out

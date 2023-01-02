@@ -8,22 +8,6 @@ body {
   font-family: sans-serif;
 }
 
-
-
-/* NAVBAR */
-
-.navbar {
-  /* background-color: white; */
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 60px;
-  text-align : center;
-  color: white;
-}
-
-
 /*  GLOBAL STYLING */
 
 h1, h2, h3, h4, h5, h6, p {
@@ -35,14 +19,59 @@ h1, h2, h3, h4, h5, h6, p {
 a {
   color: #337152;
   text-decoration: none;
-  font-weight: 300;
+  font-weight: 400;
 
 }
 
 a:hover {
-  color: #1c422f;
+  color: #86b59e;
   text-decoration: none;
   cursor: pointer;
+}
+
+
+
+/* NAVBAR */
+
+.navbar {
+  color: white;
+  position: fixed;
+  display: flex;
+  vertical-align: middle;
+  justify-content: right;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding-top: 0px;
+  padding-right: 20px;
+  height: 60px;
+  text-align : right;
+}
+
+.nav-link {
+  color: white;
+  font-weight: 400;
+  margin-top: 16px;
+  padding-top: 6px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+}
+
+.nav-link:hover {
+  color: #86b59e;
+  cursor: pointer;
+}
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  margin-top: 12px;
+  margin-right: 0;
+  border: 0;
+  border-radius: 50%;
+  background-color: #86b59e;
 }
 
 
@@ -137,11 +166,16 @@ a:hover {
 
 .home-page{
   background-color: white;
-  margin-top: 80px;
+  margin-top: 70px;
   margin-left: auto;
   margin-right: auto;
+  padding: 20px;
   width: 90%;
   border: 0px solid;
   border-radius: 4px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.user-cards {
+  padding-left: 16px;
 }

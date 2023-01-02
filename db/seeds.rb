@@ -1,10 +1,12 @@
+require  'faker'
+
 Trip.destroy_all
 User.destroy_all
 
 puts "Seeding Users 🙂"
-liv = User.create(username: "liv", password: "12345678", first_name: "Liv", last_name: "N")
-kevin = User.create(username: "kevin", password: "12345678", first_name: "Kevin", last_name: "P")
-john = User.create(username: "john", password: "12345678", first_name: "John", last_name: "M")
+liv = User.create(username: "liv", password: "12345678", first_name: "Liv", last_name: "N", profile_img: Faker::Avatar.image)
+kevin = User.create(username: "kevin", password: "12345678", first_name: "Kevin", last_name: "P", profile_img: Faker::Avatar.image)
+john = User.create(username: "john", password: "12345678", first_name: "John", last_name: "M", profile_img: Faker::Avatar.image)
 
 puts "Seeding Trips 🚘"
 la = Trip.create(destination: "Santa Monica Pier", lat: 34.00834606839637, lng: -118.4987939321287, start_date: "2023-06-01", end_date: "2023-06-14", user_id: liv.id)

@@ -14,7 +14,6 @@ function App() {
   // }
 
   useEffect(() => {
-    // auto-login
     fetch("/me").then((r) => {
       if (r.ok) {
         r.json().then((user) => setUser(user));
@@ -24,13 +23,13 @@ function App() {
 
   return (
     <div>
-      <Navbar setIsLoggedIn={setIsLoggedIn} />
+      {/* <Navbar setIsLoggedIn={setIsLoggedIn} /> */}
       <Switch>
         <Route exact path="/">
           <Login setIsLoggedIn={setIsLoggedIn} />
         </Route>
-        <Route exact path="/Home">
-          {/* <Navbar setIsLoggedIn={setIsLoggedIn} /> */}
+        <Route path={`/users/${user.id}`}>
+          <Navbar user={user} setIsLoggedIn={setIsLoggedIn} />
           <Home user={user} isLoggedIn={isLoggedIn} />
           {/* <Home user={user} handleUser={handleUser} showUser={showUser} isLoggedIn={isLoggedIn} /> */}
         </Route>

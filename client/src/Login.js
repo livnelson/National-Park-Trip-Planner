@@ -34,7 +34,7 @@ function Login({ setIsLoggedIn }) {
             console.log(user)
             setUser(user)
             setIsLoggedIn(true)
-            history.push(`/Home`)
+            history.push(`/users/${user.id}`)
           })
         } else {
           res.json().then(json => setErrors(json.errors))
@@ -50,7 +50,7 @@ function Login({ setIsLoggedIn }) {
   return (
     <div>
       <div className="login-card">
-        <img src={"./road-trip-logo.png"} alt="Road Trip" className='logo-image'/>
+        <img src={"./road-trip-logo.png"} alt="Road Trip" className='logo-image' />
         <div className="login-form">
           <form onSubmit={onSubmit}>
             <input
@@ -75,10 +75,10 @@ function Login({ setIsLoggedIn }) {
             <br />
             <button className="button" type="submit">Log In</button>
           </form>
-      </div>
-      {errors ? <div className="errors">{errors}</div> : null}
-      <p className="create-acc-link"> Need an account? <a href="/CreateUser">Create one here!</a></p>
         </div>
+        {errors ? <div className="errors">{errors}</div> : null}
+        <p className="create-acc-link"> Need an account? <a href="/CreateUser">Create one here!</a></p>
+      </div>
     </div>
   )
 }
