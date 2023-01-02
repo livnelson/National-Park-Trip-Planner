@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { Link } from 'react-router-dom'
-import Home from './Home'
-
 
 function Login({ setIsLoggedIn }) {
   const [user, setUser] = useState({})
@@ -77,7 +75,7 @@ function Login({ setIsLoggedIn }) {
           </form>
         </div>
         {errors ? <div className="errors">{errors}</div> : null}
-        <p className="create-acc-link"> Need an account? <a href="/CreateUser">Create one here!</a></p>
+        <p className="create-acc-link"> Need an account? <Link to="/CreateUser">Create one here!</Link></p>
       </div>
     </div>
   )

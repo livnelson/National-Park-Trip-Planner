@@ -1,17 +1,13 @@
 import { useState, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
 import Login from './Login'
+import CreateUser from './CreateUser'
 import Home from './Home'
 import Navbar from "./Navbar";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState({});
-  // const [showUser, setShowUser] = useState(false);
-
-  // function handleUser() {
-  //   setShowUser(!showUser);
-  // }
 
   useEffect(() => {
     fetch("/me").then((r) => {
@@ -27,11 +23,13 @@ function App() {
       <Switch>
         <Route exact path="/">
           <Login setIsLoggedIn={setIsLoggedIn} />
+          <Route path="CreateUser">
+            <CreateUser />
+          </Route>
         </Route>
         <Route path={`/users/${user.id}`}>
           <Navbar user={user} setIsLoggedIn={setIsLoggedIn} />
           <Home user={user} isLoggedIn={isLoggedIn} />
-          {/* <Home user={user} handleUser={handleUser} showUser={showUser} isLoggedIn={isLoggedIn} /> */}
         </Route>
       </Switch>
     </div>

@@ -1,6 +1,6 @@
 body {
   margin-top: 80;
-  /* background-color: #f3f3f3; */
+  background-color: #f3f3f3;
   background-image: url('https://images.unsplash.com/photo-1536420124392-79a70082fbe5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Zm9yZXN0JTIwcm9hZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60');
   background-size: cover;
   background-position: top;
@@ -166,16 +166,81 @@ a:hover {
 
 .home-page{
   background-color: white;
-  margin-top: 70px;
+  margin-top: 74px;
   margin-left: auto;
   margin-right: auto;
   padding: 20px;
-  width: 90%;
+  width: 460px;
   border: 0px solid;
   border-radius: 4px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-.user-cards {
-  padding-left: 16px;
+.greeting{
+  text-align: center;
+}
+
+.subheading{
+  padding-top: 10px;
+}
+
+
+
+/* USER CARD */
+
+.user-card {
+  background-color: #ffffff;
+  width: 360px;
+  padding-left: 6px;
+  border: 0px solid;
+  border-radius: 4px;
+}
+
+.user-form {
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  padding-bottom: 20px;
+}
+
+.logo-image {
+  display: flex;
+  max-width: 40%;
+  margin: auto;
+  padding-top: 20px;
+  padding-bottom: 5px;
+}
+
+.user-input-field {
+  width: 436px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 6px;
+  border: 1px solid;
+  border-color: #dddddd;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.input-field:hover,
+.input-field:active,
+.input-field:focus,
+.input-field:focus-visible,
+.input-field:focus-within {
+  border-color: #337152;
+}
+
+.create-acc-link {
+  font-size: 11px;
+  text-align: center;
+  padding-bottom: 14px;
+}
+
+.errors {
+  text-align: center;
+  font-size: 15px;
+  color:crimson;
+  margin: 0;
 }

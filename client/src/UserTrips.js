@@ -2,7 +2,7 @@ import React from 'react'
 
 function UserTrips() {
   return (
-    <div className="user-cards">UserTrips</div>
+    <div className="user-card">UserTrips</div>
   )
 }
 
