@@ -1,5 +1,9 @@
 class TripsController < ApplicationController
 
+def index
+    render json: Trip.all, status: :ok
+end
+
 def create
     trip = Trip.create!(trip_params)
     # if trip.valid?
