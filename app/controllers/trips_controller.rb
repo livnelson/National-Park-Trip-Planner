@@ -15,7 +15,7 @@ end
 private
 
 def trip_params
-    params.permit(:destination, :start_date, :end_date, :user_id)
+    params.permit(:destination, :start_date, :end_date, :dest_img, :user_id)
 end
 
 end

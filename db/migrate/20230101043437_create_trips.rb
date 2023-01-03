@@ -4,6 +4,7 @@ class CreateTrips < ActiveRecord::Migration[7.0]
       t.string :destination
       t.string :start_date
       t.string :end_date
+      t.string :dest_img
       t.belongs_to :user
 
       t.timestamps

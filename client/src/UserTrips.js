@@ -36,7 +36,7 @@ function UserTrips({ user }) {
   })
 
   return (
-    <div className="user-card">UserTrips
+    <div className="user-card">
       {mappedTrips}
     </div>
   )

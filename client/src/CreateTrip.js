@@ -6,6 +6,7 @@ function CreateTrip({ user }) {
   const [destination, setDestination] = useState('')
   const [startDate, setStartDate] = useState('')
   const [endDate, setEndDate] = useState('')
+  const [destImg, setDestImg] = useState('')
   // const [formData, setFormData] = useState({
   //   destination: destination,
   //   start_date: startDate,
@@ -26,6 +27,10 @@ function CreateTrip({ user }) {
     setEndDate(e.target.value)
   }
 
+  function handleDestImgChange(e) {
+    setDestImg(e.target.value)
+  }
+
   // const handleChange = (e) => {
   //   const { name, value } = e.target
   //   setFormData({ ...formData, [name]: value })
@@ -38,6 +43,7 @@ function CreateTrip({ user }) {
       destination,
       start_date: startDate,
       end_date: endDate,
+      dest_img: destImg,
       user_id: user.id
     }
     console.log(configTrip)
@@ -92,6 +98,16 @@ function CreateTrip({ user }) {
             value={endDate}
             placeholder="Enter End Date"
             onChange={handleEndDateChange}
+            required
+          />
+          <br />
+          <input
+            className="user-input-field"
+            name="dest_img"
+            type="img"
+            value={destImg}
+            placeholder="Enter Destination Image URL"
+            onChange={handleDestImgChange}
             required
           />
           <br />
