@@ -4,6 +4,7 @@ import Login from './Login'
 import CreateUser from './CreateUser'
 import Home from './Home'
 import Navbar from "./Navbar";
+import ViewTrip from "./ViewTrip"
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -12,27 +13,41 @@ function App() {
   useEffect(() => {
     fetch("/me").then((r) => {
       if (r.ok) {
-        r.json().then((user) => setUser(user));
+        r.json().then((user) => {
+          setIsLoggedIn(true)
+          setUser(user)});
       }
     });
   }, []);
 
-  return (
-    <div>
+  if (isLoggedIn){
+    return (
+      <>
+      <Navbar setIsLoggedIn={setIsLoggedIn} user={user}/>
       <Switch>
-        <Route exact path="/">
-          <Login setIsLoggedIn={setIsLoggedIn} />
+        <Route path={`/users/${user.id}`} render={routeProps => 
+       <Home setIsLoggedIn={setIsLoggedIn} user={user} isLoggedIn={isLoggedIn} {...routeProps}/> } >
+
+        </Route>
+        <Route path="/ViewTrip">
+          <ViewTrip/>
+        </Route>
+
+      </Switch>
+      </>
+    )}else {
+      return (
+        <Switch>
+        <Route render={routeprops =>  <Login setIsLoggedIn={setIsLoggedIn} {...routeprops}/>} exact path="/">
+          {/* <Login setIsLoggedIn={setIsLoggedIn} /> */}
         </Route>
         <Route path="/CreateUser">
-          <CreateUser />
+          <CreateUser/>
         </Route>
-        <Route path={`/users/${user.id}`}>
-          <Navbar user={user} setIsLoggedIn={setIsLoggedIn} />
-          <Home user={user} isLoggedIn={isLoggedIn} />
-        </Route>
-      </Switch>
-    </div>
-  );
+
+        </Switch>
+      )
+    }
 }
 
 export default App;
