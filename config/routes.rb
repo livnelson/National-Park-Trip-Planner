@@ -10,5 +10,4 @@ Rails.application.routes.draw do
   post "/newtrip", to: "trips#create"
   get "/alltrips", to: "trips#index"
   get "/trip", to: "activities#show"
-  
 end

@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useHistory } from "react-router-dom";
 
 function Navbar({ user, setIsLoggedIn }) {
- const history = useHistory();
+  const history = useHistory();
 
   function handleLogout() {
     fetch("/logout", {

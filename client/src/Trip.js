@@ -1,6 +1,6 @@
 import { useHistory, useParams, Link } from 'react-router-dom'
 import React from 'react'
-import ViewTrip from './ViewTrip'
+// import ViewTrip from './ViewTrip'
 
 function Trip({ trip, deleteTrip, user, updateTrip }) {
 
@@ -30,7 +30,8 @@ function Trip({ trip, deleteTrip, user, updateTrip }) {
   }
 
   function handleEdit(){
-    history.push(`/ViewTrip/${trip.id}`)
+    // history.push(`/ViewTrip/${trip.id}`)
+    history.push(`/`)
   }
   
  // <ViewTrip handleEdit={handleEdit} trip={trip} user={user} updateTrip={updateTrip} deleteTrip={deleteTrip}/>
@@ -47,7 +48,7 @@ function Trip({ trip, deleteTrip, user, updateTrip }) {
         <span className="edit-icon" onClick={handleEdit}>✎</span>
         <span className="delete-icon" onClick={handleDelete}>⊗</span>
         {/* <Link to="/ViewTrip" onClick={handleEdit} >View Trip</Link> */}
-        <button onClick={handleEdit} >View Trip</button>
+        {/* <button onClick={handleEdit} >View Trip</button> */}
         </div>
       </div>
   )
