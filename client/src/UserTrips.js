@@ -5,6 +5,7 @@ import Trip from "./Trip"
 function UserTrips({ user }) {
 
   const [trips, setTrips] = useState([])
+  const [trip, setTrip] = useState({})
   const { user_id } = user
   console.log(user)
 
@@ -24,6 +25,20 @@ function UserTrips({ user }) {
       })
   }, [])
 
+  const addTrip = (trip) => setTrips(current => [...current,trip])
+
+  const updateTrip = (updatedTrip) => setTrips(current => {
+    return current.map(trip => {
+     if(trip.id === updatedTrip.id){
+       return updatedTrip
+     } else {
+       return trip
+     }
+    })
+  })
+
+  const deleteTrip = (id) => setTrips(current => current.filter(p => p.id !== id))
+
   const filteredTrips = trips.filter((trip) => {
     //console.log("user" + user)
     //console.log("user.id:" + user.id)
@@ -32,7 +47,7 @@ function UserTrips({ user }) {
 
   const mappedTrips = filteredTrips.map((trip) => {
     //console.log(trip)
-    return <Trip trip={trip} key={trip.id} />
+    return <Trip updateTrip={updateTrip} trip={trip} key={trip.id} deleteTrip={deleteTrip} user={user}/>
   })
 
   return (
