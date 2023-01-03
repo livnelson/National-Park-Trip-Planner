@@ -43,6 +43,7 @@ function CreateTrip({ user }) {
       destination,
       start_date: startDate,
       end_date: endDate,
+      dest_img: destImg,
       user_id: user.id
     }
     console.log(configTrip)
@@ -104,7 +105,7 @@ function CreateTrip({ user }) {
             className="user-input-field"
             name="dest_img"
             type="img"
-            value={endDate}
+            value={destImg}
             placeholder="Enter Destination Image URL"
             onChange={handleDestImgChange}
             required
