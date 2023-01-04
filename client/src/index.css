@@ -21,7 +21,12 @@ body {
 
 /*  GLOBAL STYLING */
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
   padding: 5px;
   line-height: 1;
@@ -63,7 +68,7 @@ a:hover {
   padding-top: 8px;
   padding-right: 20px;
   height: 60px;
-  text-align : right;
+  text-align: right;
 }
 
 .nav-link {
@@ -98,8 +103,8 @@ a:hover {
 
 .login-card {
   background-color: #ffffff;
-  margin:auto;
-  margin-top:100px;
+  margin: auto;
+  margin-top: 100px;
   width: 360px;
   border: 0px solid;
   border-radius: 4px;
@@ -145,7 +150,7 @@ a:hover {
 .errors {
   text-align: center;
   font-size: 15px;
-  color:crimson;
+  color: crimson;
   margin: 0;
 }
 
@@ -174,7 +179,7 @@ a:hover {
 
 /*  HOME PAGE */
 
-.home-page{
+.home-page {
   background-color: #f3f3f3;
   margin-top: 10px;
   margin-left: auto;
@@ -187,11 +192,11 @@ a:hover {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-.greeting{
+.greeting {
   text-align: center;
 }
 
-.subheading{
+.subheading {
   padding-top: 10px;
 }
 
@@ -206,7 +211,7 @@ a:hover {
   grid-column-gap: 0px;
   grid-row-gap: 10px;
   justify-items: left;
-  }
+}
 
 .user-form {
   padding-bottom: 20px;
@@ -242,7 +247,7 @@ a:hover {
 .errors {
   text-align: center;
   font-size: 15px;
-  color:crimson;
+  color: crimson;
   margin: 0;
 }
 
@@ -252,8 +257,8 @@ a:hover {
 
 .create-user-card {
   background-color: #ffffff;
-  margin:auto;
-  margin-top:100px;
+  margin: auto;
+  margin-top: 100px;
   width: 360px;
   border: 0px solid;
   border-radius: 4px;
@@ -338,7 +343,7 @@ a:hover {
 .card {
   background-color: white;
   border-radius: 0.25rem;
-  box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
+  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -375,10 +380,10 @@ a:hover {
   border-radius: 50%;
   filter: contrast(70%);
   overflow: hidden;
-  transition: filter 0.5s cubic-bezier(.43,.41,.22,.91);
+  transition: filter 0.5s cubic-bezier(.43, .41, .22, .91);
 }
 
-.card__image:hover{
+.card__image:hover {
   filter: contrast(100%);
 }
 
@@ -390,7 +395,8 @@ a:hover {
   text-transform: uppercase;
 }
 
-.card__text, .card__detail p {
+.card__text,
+.card__detail p {
   flex: 1 1 auto;
   font-size: 11px;
   line-height: 1.15;
@@ -402,38 +408,38 @@ a:hover {
   grid-template-columns: repeat(3, 3fr);
 }
 
-.edit-icon{
+.edit-icon {
   text-align: right;
   padding-left: 30px;
   font-size: 18px;
 }
 
-.edit-icon:hover{
+.edit-icon:hover {
   color: #337152;
   font-size: 22px;
   cursor: pointer;
 }
 
-.delete-icon{
+.delete-icon {
   text-align: right;
   padding-left: 14px;
   font-size: 18px;
 }
 
-.delete-icon:hover{
+.delete-icon:hover {
   color: #337152;
   font-size: 22px;
   cursor: pointer;
 }
 
-.park-name{
+.park-name {
   font-size: 16px;
   font-weight: 500;
   letter-spacing: 0.5px;
   padding-top: 8px;
 }
 
-.park-name:hover{
+.park-name:hover {
   color: #337152;
   cursor: pointer;
 }
@@ -452,7 +458,7 @@ a:hover {
   /* margin-left: 4px; */
   border-radius: 0.25rem;
   overflow: hidden;
-  box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
+  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
 }
 
 .park-card-image {
@@ -469,10 +475,10 @@ a:hover {
   border-radius: 5px;
   filter: contrast(70%);
   overflow: hidden;
-  transition: filter 0.5s cubic-bezier(.43,.41,.22,.91);
+  transition: filter 0.5s cubic-bezier(.43, .41, .22, .91);
 }
 
-.park-card-image:hover{
+.park-card-image:hover {
   filter: contrast(100%);
 }
 
@@ -499,18 +505,18 @@ ul {
   overflow: hidden;
 }
 
-.image-card-style{
+.image-card-style {
   width: 150px;
   /* margin: 10px; */
   margin-top: 5px;
   margin-left: 12px;
   /* padding-right: 10px; */
-  
+
   justify-content: space-around;
-  
+
 }
 
-.activity-details{
+.activity-details {
   margin-top: 0;
   margin-left: -15px;
   font-size: 12px;
@@ -519,7 +525,7 @@ ul {
   color: #333;
 }
 
-.park-address{
+.park-address {
   font-size: 13px;
   letter-spacing: 1px;
   color: #333;
@@ -550,7 +556,11 @@ ul {
   font-size: 12px;
 }
 
-.save-button:hover{
+.save-button:hover {
   background-color: #337152;
   cursor: pointer;
+}
+
+.checkboxes {
+  z-index: 9999;
 }

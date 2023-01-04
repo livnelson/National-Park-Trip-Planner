@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import UserTrips from './UserTrips'
-import CreateTrip from './CreateTrip'
+// import CreateTrip from './CreateTrip'
 import NattyParks from "./NattyParks";
 
 function Home({ user }) {
@@ -24,7 +24,7 @@ function Home({ user }) {
       <br />
       <h3 className='subheading'>Browse through Popular National Park Locations</h3>
       <NattyParks parks={parks} />
-      <CreateTrip user={user} />
+      {/* <CreateTrip user={user} /> */}
     </div>
   );
 }
