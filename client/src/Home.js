@@ -1,16 +1,17 @@
 import { useState, useEffect } from "react";
 import UserTrips from './UserTrips'
 import CreateTrip from './CreateTrip'
+import NattyParks from "./NattyParks";
 
 function Home({ user }) {
   const [parks, setParks] = useState([])
 
   useEffect(() => {
-    fetch("https://developer.nps.gov/api/v1/parks?api_key=ejj9Xj8WF8yyAFJIN0Ev3IL3cZrsbkT6CCg0JJ5s")
+    fetch("https://developer.nps.gov/api/v1/parks?limit=20&api_key=ejj9Xj8WF8yyAFJIN0Ev3IL3cZrsbkT6CCg0JJ5s")
       .then((r) => r.json())
       .then((parksArray) => {
-        console.log(parksArray);
-        setParks(parksArray)
+        console.log(parksArray.data);
+        setParks(parksArray.data)
       });
   }, []);
 
@@ -22,6 +23,7 @@ function Home({ user }) {
       <UserTrips user={user} />
       <br />
       <h3 className='subheading'>Plan a Visit</h3>
+      <NattyParks parks={parks} />
       <CreateTrip user={user} />
     </div>
   );
