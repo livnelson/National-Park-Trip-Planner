@@ -68,6 +68,8 @@ function CreateTrip({ user }) {
   }
 
   return (
+    <div>
+      <h3>Create a Trip</h3>
     <div className="user-card">
       <div className="user-form">
         <form onSubmit={onSubmit}>
@@ -114,6 +116,7 @@ function CreateTrip({ user }) {
           <button className="button" type="submit">Save Your Trip</button>
         </form>
       </div>
+    </div>
     </div>
   )
 }

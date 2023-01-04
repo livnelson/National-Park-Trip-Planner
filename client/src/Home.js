@@ -7,7 +7,7 @@ function Home({ user }) {
   const [parks, setParks] = useState([])
 
   useEffect(() => {
-    fetch("https://developer.nps.gov/api/v1/parks?limit=20&api_key=ejj9Xj8WF8yyAFJIN0Ev3IL3cZrsbkT6CCg0JJ5s")
+    fetch("https://developer.nps.gov/api/v1/parks?stateCode=CA&limit=20&sort=&api_key=ejj9Xj8WF8yyAFJIN0Ev3IL3cZrsbkT6CCg0JJ5s")
       .then((r) => r.json())
       .then((parksArray) => {
         console.log(parksArray.data);
@@ -22,7 +22,7 @@ function Home({ user }) {
       <h3 className='subheading'>Your Saved Trips</h3>
       <UserTrips user={user} />
       <br />
-      <h3 className='subheading'>Plan a Visit</h3>
+      <h3 className='subheading'>Browse through Popular National Park Locations</h3>
       <NattyParks parks={parks} />
       <CreateTrip user={user} />
     </div>

@@ -1,46 +1,29 @@
-import React from 'react'
+import React, { useState } from 'react'
+import ParkDetails from "./ParkDetails"
 
-const Park = ({ fullname, images, activities, addresses }) => {
+const Park = ({ id, fullname, images, activities, addresses, description, directionsUrl }) => {
+  const [viewPark, setViewPark] = useState(true)
 
+  const toggleViewPark = () => {
+    console.log(`Park name clicked - park id: ${id}`)
+    setViewPark(!viewPark)
+  }
 
-    const filteredAddresses = addresses.filter(address => {
-        if (address.type === "Physical")
-            return true
-    })
-
-    const mappedAddresses = filteredAddresses.map(address => {
-        return (
-            <div>
-                <p>{address.line1}</p>
-                <p>{address.city}</p>
-                <p>{address.stateCode}</p>
-                <p>{address.postalCode}</p>
-            </div>)
-    })
-
-    const mappedImages = images.map(image => {
-        return <div>
-            <img src={image.url} alt={image.altText} />
-            <p>{image.title}</p>
-            <p>{image.caption}</p>
-            <p>{image.credit}</p>
-        </div>
-    })
-
-    const mappedActivities = activities.map(activity => {
-        return <p>{activity.name}</p>
-    })
-
-    //console.log(fullname)
-    //console.log(addresses)
-    return (
-        <div>
-            <h1>{fullname}</h1>
-            <h1>{mappedAddresses}</h1>
-            <h1>{mappedImages}</h1>
-            <h1>{mappedActivities}</h1>
-        </div>
-    )
+  return (
+    <div>
+      <h4 onClick={toggleViewPark} className="park-name">{viewPark ? fullname : 
+      <ParkDetails
+      id={id} 
+      fullname={fullname} 
+      images={images} 
+      activities={activities} 
+      addresses={addresses}
+      description={description}
+      directionsUrl={directionsUrl}
+      />
+      }</h4>
+    </div>
+  )
 }
 
 export default Park
