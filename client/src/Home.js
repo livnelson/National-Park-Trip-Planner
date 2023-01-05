@@ -25,7 +25,6 @@ function Home({ user }) {
       <h3 className='subheading'>Browse through Popular National Park Locations</h3>
       <NattyParks parks={parks} />
       {/* <CreateTrip user={user} /> */}
-
     </div>
   );
 }

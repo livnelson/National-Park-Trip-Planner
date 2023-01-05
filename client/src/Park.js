@@ -16,18 +16,16 @@ const Park = ({ id, fullname, images, activities, addresses, description, direct
 
     return (
         <div>
-            <h4 onClick={toggleViewPark} className="park-name">{viewPark ? fullname :
-                <ParkDetails
-                    key={id}
-                    id={id}
-                    fullname={fullname}
-                    images={images}
-                    activities={activities}
-                    addresses={addresses}
-                    description={description}
-                    directionsUrl={directionsUrl}
-                />
-            }</h4>
+            <h4 onClick={toggleViewPark} className="park-name">{fullname}</h4>
+            {viewPark ? null : <ParkDetails
+                key={id}
+                id={id}
+                fullname={fullname}
+                images={images}
+                activities={activities}
+                addresses={addresses}
+                description={description}
+                directionsUrl={directionsUrl} />}
         </div>
     )
 }

@@ -1,11 +1,9 @@
 import React, { useState } from 'react'
 
 
-function ParkActivities({ activity, handleSubmit }) {
+function ParkActivities({ activity }) {
 
-    const [isChecked, setIsChecked] = useState(false);
-
-    //console.log(activity)
+    const [isChecked, setIsChecked] = useState(false)
 
     function handleChange() {
         setIsChecked(!isChecked)
@@ -15,11 +13,10 @@ function ParkActivities({ activity, handleSubmit }) {
     }
 
     return (
-        <form className='checkboxes' onSubmit={handleSubmit}>
+        <div>
             <input type="checkbox" onChange={handleChange} checked={isChecked} />
             <label>{activity}</label>
-            <button>Submit</button>
-        </form>
+        </div>
     )
 }
 

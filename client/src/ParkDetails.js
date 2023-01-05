@@ -38,7 +38,7 @@ function ParkDetails({ id, fullname, images, activities, addresses, description,
 
   const mappedActivities = activities.map(activity => {
     activityNames.push(activity.name)
-
+    //saveTrip(mappedActivities)
     return <li>{activity.name}</li>
   })
 
@@ -49,10 +49,11 @@ function ParkDetails({ id, fullname, images, activities, addresses, description,
   // console.log(description)
 
   function saveTrip() {
+
     // const mappedActivitiesToo = activities.map(activity => {
     //   return <li>{activity.name}</li>
     // })
-    console.log(`Save button clicked, trip id: ${id}, name: ${fullname}`)
+    console.log(`Save button clicked, trip id: ${id}, name: ${fullname}, activities: ${activities}`)
   }
 
   //console.log(`Save button clicked, trip id: ${id}, name: ${fullname}, activities: ${saveTrip}`)
