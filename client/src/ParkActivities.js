@@ -1,25 +1,25 @@
 import React, { useState } from 'react'
 
 
-function ParkActivities({ activity, parks }) {
+function ParkActivities({ activity, handleSubmit }) {
 
     const [isChecked, setIsChecked] = useState(false);
 
-    console.log(parks)
-
     //console.log(activity)
 
-    function handleSubmit() {
-
+    function handleChange() {
+        setIsChecked(!isChecked)
+        if (isChecked) {
+            return true
+        }
     }
 
     return (
-        <div></div>
-        //     <form className='checkboxes' onSubmit={handleSubmit}>
-        //         <input type="checkbox" onChange={handleCheckChange} checked={isChecked} />
-        //         <label>{activity}</label>
-        //         <button>Submit</button>
-        //     </form>
+        <form className='checkboxes' onSubmit={handleSubmit}>
+            <input type="checkbox" onChange={handleChange} checked={isChecked} />
+            <label>{activity}</label>
+            <button>Submit</button>
+        </form>
     )
 }
 
