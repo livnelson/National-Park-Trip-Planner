@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :activities
   resources :activities, only: [:show]
   resources :users, only: [:show, :index, :create]
   resources :trips, only: [:destroy, :update]

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import CheckboxTree from "react-dynamic-checkbox-tree";
 import ParkActivities from './ParkActivities';
 
-function CreateTrip({ user, fullname, id, activityNames, mappedActivities }) {
+function CreateTrip({ user, fullname, id, activityNames, mappedImages, activities }) {
   const [errors, setErrors] = useState([])
   const [trip, setTrip] = useState({})
   const [destination, setDestination] = useState('')
@@ -16,6 +16,7 @@ function CreateTrip({ user, fullname, id, activityNames, mappedActivities }) {
   //   end_date: endDate
   // })
 
+  console.log(id)
 
   //const formatYmd = date => date.toISOString().slice(0, 10);
 
@@ -41,32 +42,39 @@ function CreateTrip({ user, fullname, id, activityNames, mappedActivities }) {
   // const handleChange = (e) => {
   //   const { name, value } = e.target
   //   setFormData({ ...formData, [name]: value })
-  // }
-
-  console.log(activityNames)
-
-  // const mappedParkActivities = activityNames.forEach(activityName => {
-  //   //console.log(activityName)
-  //   return <label>
-  //     <input type="checkbox" />
-  //     {activityName}
-  //   </label>
-  // })
 
 
+  //console.log(activityNames)
 
-  console.log(mappedActivities)
 
-  function onSubmit(e) {
+  const mappedActivities = activities.map(activity => {
+    return activity.name
+  })
+
+
+  function handleSaveTrip(e) {
     e.preventDefault()
+
+    const configImage = mappedImages.slice(0, 1)
+
+
+    console.log(configImage)
+    console.log(user)
+
     const configTrip = {
-      destination,
+      fullname,
       start_date: startDate,
       end_date: endDate,
-      dest_img: destImg,
-      user_id: user.id
+      images: configImage,
+      user_id: user.id,
+      apiPark_id: id
     }
     console.log(configTrip)
+
+    const configActivities = {
+      name: mappedActivities,
+      apiPark_id: id
+    }
 
     fetch(`/newtrip`, {
       method: 'POST',
@@ -85,6 +93,26 @@ function CreateTrip({ user, fullname, id, activityNames, mappedActivities }) {
           res.json().then(json => setErrors(json.errors))
         }
       })
+
+
+    fetch(`/newactivities`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(mappedActivities)
+    })
+      .then(res => {
+        console.log("Hi again")
+        if (res.ok) {
+          res.json().then(trip => {
+            console.log(trip)
+            console.log("Hi")
+            setTrip(trip)
+          })
+        } else {
+          res.json().then(json => setErrors(json.errors))
+        }
+      })
+
   }
 
 
@@ -93,7 +121,7 @@ function CreateTrip({ user, fullname, id, activityNames, mappedActivities }) {
       <h3>Create a Trip</h3>
       <div className="user-card">
         <div className="user-form">
-          <form onSubmit={onSubmit}>
+          <form onSubmit={handleSaveTrip}>
             <input
               className="user-input-field"
               name="destination"
@@ -160,11 +188,11 @@ function CreateTrip({ user, fullname, id, activityNames, mappedActivities }) {
                       /> */}
             <br />
             {activityNames.map(activity => <ParkActivities activity={activity} />)}
-            <button className="button" type="submit">Save Your Trip</button>
+            <button className="button" type="submit" >Save Your Trip</button>
           </form>
         </div>
       </div>
-    </div>
+    </div >
   )
 }
 

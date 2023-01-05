@@ -23,7 +23,7 @@ function Home({ user }) {
       <UserTrips user={user} />
       <br />
       <h3 className='subheading'>Browse through Popular National Park Locations</h3>
-      <NattyParks parks={parks} />
+      <NattyParks parks={parks} user={user} />
       {/* <CreateTrip user={user} /> */}
     </div>
   );

@@ -2,7 +2,7 @@ import React from 'react'
 import Park from './Park'
 
 
-export default function NattyParks({ parks }) {
+export default function NattyParks({ parks, user }) {
 
     // console.log(parks)
     // console.log(filteredParks)
@@ -19,6 +19,7 @@ export default function NattyParks({ parks }) {
             addresses={park.addresses}
             description={park.description}
             directionsUrl={park.directionsUrl}
+            user={user}
         />
     })
 

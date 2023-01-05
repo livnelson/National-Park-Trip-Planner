@@ -3,7 +3,7 @@ import CreateTrip from './CreateTrip'
 import ParkActivities from './ParkActivities'
 
 
-function ParkDetails({ id, fullname, images, activities, addresses, description, directionsUrl }) {
+function ParkDetails({ id, fullname, images, activities, addresses, description, directionsUrl, user }) {
 
   const filteredAddresses = addresses.filter(address => {
     if (address.type === "Physical")
@@ -75,7 +75,7 @@ function ParkDetails({ id, fullname, images, activities, addresses, description,
         <h6>Park Images:</h6>
         <span className="image-cards">{mappedImages}</span>
       </div>
-      <CreateTrip fullname={fullname} id={id} saveTrip={saveTrip} activityNames={activityNames} mappedActivities={mappedActivities} />
+      <CreateTrip fullname={fullname} id={id} saveTrip={saveTrip} activityNames={activityNames} mappedImages={mappedImages} user={user} activities={activities} />
     </div>
   )
 

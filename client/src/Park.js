@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import ParkDetails from "./ParkDetails"
 import CreateTrip from './CreateTrip'
 
-const Park = ({ id, fullname, images, activities, addresses, description, directionsUrl }) => {
+const Park = ({ id, fullname, images, activities, addresses, description, directionsUrl, user }) => {
     const [viewPark, setViewPark] = useState(true)
 
     const toggleViewPark = () => {
@@ -25,7 +25,8 @@ const Park = ({ id, fullname, images, activities, addresses, description, direct
                 activities={activities}
                 addresses={addresses}
                 description={description}
-                directionsUrl={directionsUrl} />}
+                directionsUrl={directionsUrl}
+                user={user} />}
         </div>
     )
 }
