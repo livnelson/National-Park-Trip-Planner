@@ -49,6 +49,7 @@ function ParkDetails({ id, fullname, images, activities, addresses, description,
   // console.log(description)
 
   function saveTrip() {
+
     // const mappedActivitiesToo = activities.map(activity => {
     //   return <li>{activity.name}</li>
     // })
