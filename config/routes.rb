@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  resources :activities
-  resources :activities, only: [:show]
+  resources :activities, only: [:show, :create]
   resources :users, only: [:show, :index, :create]
   resources :trips, only: [:destroy, :update]
   
@@ -11,4 +10,5 @@ Rails.application.routes.draw do
   post "/newtrip", to: "trips#create"
   get "/alltrips", to: "trips#index"
   get "/trip", to: "activities#show"
+  post "/newactivities", to: "activities#create"
 end

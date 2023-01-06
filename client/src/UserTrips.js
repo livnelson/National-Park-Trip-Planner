@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Trip from "./Trip"
 
 
-function UserTrips({ user }) {
+function UserTrips({ user, parks }) {
 
   const [trips, setTrips] = useState([])
   const [trip, setTrip] = useState({})
@@ -25,15 +25,17 @@ function UserTrips({ user }) {
       })
   }, [])
 
-  const addTrip = (trip) => setTrips(current => [...current,trip])
+  const needParkId = parks.map((park => park.id))
+
+  const addTrip = (trip) => setTrips(current => [...current, trip])
 
   const updateTrip = (updatedTrip) => setTrips(current => {
     return current.map(trip => {
-     if(trip.id === updatedTrip.id){
-       return updatedTrip
-     } else {
-       return trip
-     }
+      if (trip.id === updatedTrip.id) {
+        return updatedTrip
+      } else {
+        return trip
+      }
     })
   })
 
@@ -47,7 +49,7 @@ function UserTrips({ user }) {
 
   const mappedTrips = filteredTrips.map((trip) => {
     //console.log(trip)
-    return <Trip updateTrip={updateTrip} trip={trip} key={trip.id} deleteTrip={deleteTrip} user={user}/>
+    return <Trip updateTrip={updateTrip} trip={trip} key={trip.id} deleteTrip={deleteTrip} user={user} apiPark_id={needParkId} />
   })
 
   return (

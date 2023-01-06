@@ -5,7 +5,8 @@ import ParkActivities from './ParkActivities';
 function CreateTrip({ user, fullname, id, activityNames, mappedImages, activities }) {
   const [errors, setErrors] = useState([])
   const [trip, setTrip] = useState({})
-  const [destination, setDestination] = useState('')
+  const [userActivities, setUserActivities] = useState({})
+  //const [destination, setDestination] = useState('')
   const [startDate, setStartDate] = useState('')
   const [endDate, setEndDate] = useState('')
   const [destImg, setDestImg] = useState('')
@@ -22,9 +23,9 @@ function CreateTrip({ user, fullname, id, activityNames, mappedImages, activitie
 
   //const formatYmd = date => date.toISOString().slice(0, 10);
 
-  function handleDestinationChange(e) {
-    setDestination(e.target.value)
-  }
+  // function handleDestinationChange(e) {
+  //   setDestination(e.target.value)
+  // }
 
   function handleStartDateChange(e) {
     setStartDate(e.target.value)
@@ -34,9 +35,9 @@ function CreateTrip({ user, fullname, id, activityNames, mappedImages, activitie
     setEndDate(e.target.value)
   }
 
-  function handleActivityChange(e) {
-    setDestImg(e.target.value)
-  }
+  // function handleActivityChange(e) {
+  //   setDestImg(e.target.value)
+  // }
 
   // const handleChange = (e) => {
   //   const { name, value } = e.target
@@ -46,21 +47,20 @@ function CreateTrip({ user, fullname, id, activityNames, mappedImages, activitie
     return activity.name
   })
 
+  // console.log(mappedImages)
 
   function handleSaveTrip(e) {
     e.preventDefault()
 
-    const configImage = mappedImages.slice(0, 1)
+    // const configImage = mappedImages.slice(0, 1)
 
-
-    console.log(configImage)
+    // console.log(configImage)
     console.log(user)
 
     const configTrip = {
       fullname,
       start_date: startDate,
       end_date: endDate,
-      images: configImage,
       user_id: user.id,
       apiPark_id: id
     }
@@ -68,11 +68,29 @@ function CreateTrip({ user, fullname, id, activityNames, mappedImages, activitie
 
     const configActivities = {
 
-      name: checkedActivities.join(","),
+      name: checkedActivities.join(", "),
       apiPark_id: id
     }
 
     console.log(configActivities)
+
+    // function stringify(configTrip) {
+    //   let cache = [];
+    //   let str = JSON.stringify(configTrip, function (key, value) {
+    //     if (typeof value === "object" && value !== null) {
+    //       if (cache.indexOf(value) !== -1) {
+    //         // Circular reference found, discard key
+    //         return;
+    //       }
+    //       // Store value in our collection
+    //       cache.push(value);
+    //     }
+    //     return value;
+    //   });
+    //   cache = null; // reset the cache
+    //   return str;
+    // }
+
 
     fetch(`/newtrip`, {
       method: 'POST',
@@ -80,11 +98,9 @@ function CreateTrip({ user, fullname, id, activityNames, mappedImages, activitie
       body: JSON.stringify(configTrip)
     })
       .then(res => {
-        console.log("Hi again")
         if (res.ok) {
           res.json().then(trip => {
             console.log(trip)
-            console.log("Hi")
             setTrip(trip)
           })
         } else {
@@ -96,15 +112,13 @@ function CreateTrip({ user, fullname, id, activityNames, mappedImages, activitie
     fetch(`/newactivities`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(mappedActivities)
+      body: JSON.stringify(configActivities)
     })
       .then(res => {
-        console.log("Hi again")
         if (res.ok) {
-          res.json().then(trip => {
-            console.log(trip)
-            console.log("Hi")
-            setTrip(trip)
+          res.json().then(resp => {
+            console.log(resp)
+            setUserActivities(resp)
           })
         } else {
           res.json().then(json => setErrors(json.errors))
@@ -122,7 +136,7 @@ function CreateTrip({ user, fullname, id, activityNames, mappedImages, activitie
           <form onSubmit={handleSaveTrip}>
             <input
               className="user-input-field"
-              name="destination"
+              name="fullname"
               type="text"
               value={fullname}
               placeholder={fullname}
