@@ -53,7 +53,7 @@ function UserTrips({ user, parks }) {
   })
 
   return (
-    <div className="user-card">
+    <div className="trip-cards">
       {mappedTrips}
     </div>
   )

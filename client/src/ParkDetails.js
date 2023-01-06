@@ -1,15 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import CreateTrip from './CreateTrip'
 import ParkActivities from './ParkActivities'
 
 
 function ParkDetails({ id, fullname, images, activities, addresses, description, directionsUrl, user }) {
-
+  const [viewCreate, setViewCreate] = useState(false)
   const filteredAddresses = addresses.filter(address => {
     if (address.type === "Physical")
       return true
   })
 
+  function toggleViewCreate(){
+    setViewCreate(!viewCreate)
+  }
   console.log(activities)
 
   const mappedAddresses = filteredAddresses.map(address => {
@@ -48,13 +51,13 @@ function ParkDetails({ id, fullname, images, activities, addresses, description,
   // console.log(addresses)
   // console.log(description)
 
-  function saveTrip() {
+  // function saveTrip() {
 
-    // const mappedActivitiesToo = activities.map(activity => {
-    //   return <li>{activity.name}</li>
-    // })
-    console.log(`Save button clicked, trip id: ${id}, name: ${fullname}, activities: ${activities}`)
-  }
+  //   // const mappedActivitiesToo = activities.map(activity => {
+  //   //   return <li>{activity.name}</li>
+  //   // })
+  //   console.log(`Save button clicked, trip id: ${id}, name: ${fullname}, activities: ${activities}`)
+  // }
 
   //console.log(`Save button clicked, trip id: ${id}, name: ${fullname}, activities: ${saveTrip}`)
   console.log(mappedActivities)
@@ -65,7 +68,6 @@ function ParkDetails({ id, fullname, images, activities, addresses, description,
       <p className="park-description">{description}</p>
       <br />
       <span>{mappedAddresses}</span>
-      <button className="save-button" onClick={saveTrip}>Save Park and Create a Trip</button>
       <div>
         <br />
         <h6>Park Activities:</h6>
@@ -75,8 +77,12 @@ function ParkDetails({ id, fullname, images, activities, addresses, description,
         <h6>Park Images:</h6>
         <span className="image-cards">{mappedImages}</span>
       </div>
-      <CreateTrip fullname={fullname} id={id} saveTrip={saveTrip} activityNames={activityNames} mappedImages={mappedImages} user={user} activities={activities} />
-    </div>
+      <br />
+      {viewCreate ? 
+      <CreateTrip fullname={fullname} id={id} activityNames={activityNames} mappedImages={mappedImages} user={user} activities={activities} /> :
+      <button className="save-button" onClick={toggleViewCreate}>Create a Trip</button>
+      }
+      </div>
   )
 
 }

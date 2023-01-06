@@ -186,7 +186,7 @@ a:hover {
   margin-right: auto;
   margin-bottom: 60px;
   padding: 20px;
-  width: 520px;
+  width: 85%;
   border: 0px solid;
   border-radius: 4px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
@@ -205,7 +205,7 @@ a:hover {
 /* USER CARD */
 
 .user-card {
-  display: grid;
+  /* display: grid; */
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(1, 1fr);
   grid-column-gap: 0px;
@@ -218,7 +218,7 @@ a:hover {
 }
 
 .user-input-field {
-  width: 498px;
+  width: 95%;
   margin-top: 5px;
   margin-bottom: 5px;
   padding-top: 4px;
@@ -303,7 +303,7 @@ a:hover {
 
 
 /*  TRIP CARD  */
-
+/* 
 .trip-card {
   display: flex;
   justify-content: center;
@@ -316,14 +316,14 @@ a:hover {
   height: 60px;
   border-radius: 50%;
   margin-right: 10px;
-}
+} */
 
 
 
 /*  TESTING TRIP CARD */
 
 
-.cards {
+/* .cards {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
@@ -332,15 +332,15 @@ a:hover {
   padding: 0;
   align-items: left;
   justify-items: left;
-}
+} */
 
-.cards__item {
+/* .cards__item {
   display: flex;
-  /* padding: 1rem; */
-  /* width: 35%; */
-}
+  padding: 1rem;
+  width: 35%;
+} */
 
-.card {
+/* .card {
   background-color: white;
   border-radius: 0.25rem;
   box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
@@ -351,9 +351,9 @@ a:hover {
   width: 150px;
   padding-left: 5px;
   padding-right: 5px;
-}
+} */
 
-.card__content {
+/* .card__content {
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
@@ -362,9 +362,9 @@ a:hover {
   align-content: left;
   justify-items: center;
   align-items: center;
-}
+} */
 
-.card__image {
+/* .card__image {
   justify-content: center;
   align-content: center;
   justify-items: center;
@@ -381,32 +381,32 @@ a:hover {
   filter: contrast(70%);
   overflow: hidden;
   transition: filter 0.5s cubic-bezier(.43, .41, .22, .91);
-}
+} */
 
-.card__image:hover {
+/* .card__image:hover {
   filter: contrast(100%);
-}
+} */
 
-.card__title {
+/* .card__title {
   color: #696969;
   font-size: 1.25rem;
   font-weight: 300;
   letter-spacing: 2px;
   text-transform: uppercase;
-}
+} */
 
-.card__text,
+/* .card__text,
 .card__detail p {
   flex: 1 1 auto;
   font-size: 11px;
   line-height: 1.15;
   margin-bottom: 0rem;
-}
+} */
 
-.card__detail {
+/* .card__detail {
   display: grid;
   grid-template-columns: repeat(3, 3fr);
-}
+} */
 
 .edit-icon {
   text-align: right;
@@ -432,8 +432,13 @@ a:hover {
   cursor: pointer;
 }
 
+
+
+
+/*  PARK DETAIL CARDS  */
+
 .park-name {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 500;
   letter-spacing: 0.5px;
   padding-top: 8px;
@@ -444,18 +449,23 @@ a:hover {
   cursor: pointer;
 }
 
+.park-name:active {
+  color: #337152;
+  cursor: pointer;
+}
+
 .park-detail-card {
-  /* display: flex; */
-  /* flex-direction: column; */
+  display: flex;
+  flex-direction: column;
   background-color: white;
-  width: 495px;
+  width: 97%;
   padding-left: 10px;
   padding-right: 5px;
   padding-top: 10px;
   padding-bottom: 10px;
   margin: auto;
+  margin-top: 10px;
   margin-bottom: 20px;
-  /* margin-left: 4px; */
   border-radius: 0.25rem;
   overflow: hidden;
   box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
@@ -483,10 +493,10 @@ a:hover {
 }
 
 .photo-cred {
-  font-size: 9px;
+  font-size: 8px;
   font-weight: 300;
   color: #333;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.25px;
 }
 
 ul {
@@ -523,6 +533,7 @@ ul {
   letter-spacing: 1px;
   line-height: 1.35;
   color: #333;
+  max-width: 450px;
 }
 
 .park-address {
@@ -532,7 +543,7 @@ ul {
 }
 
 .park-description {
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: .5px;
   line-height: 1.25;
   color: #333;
@@ -540,17 +551,17 @@ ul {
 }
 
 .save-button {
+  z-index: 9999;
   margin-top: 10px;
   margin-bottom: 10px;
-  z-index: 9999;
   color: white;
   background-color: black;
   margin-top: 10px;
   margin-left: 4px;
   padding-left: 20px;
   padding-right: 20px;
-  padding-top: 6px;
-  padding-bottom: 6px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   border: 0px solid;
   border-radius: 4px;
   font-size: 12px;
@@ -563,4 +574,100 @@ ul {
 
 .checkboxes {
   z-index: 9999;
+}
+
+/*  EDIT TRIP FORM  */
+
+.edit-trip-form {
+  background-color: white;
+  border-radius: 0.25rem;
+  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin-left: 4px;
+  margin-top: 4px;
+  width: 150px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-bottom: 10px;
+  padding-top: 5px;
+
+}
+
+.create-user-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+.edit-trip-input-field {
+  width: 95%;
+  margin-top: 0px;
+  margin-bottom: 5px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 6px;
+  border: 1px solid;
+  border-color: #dddddd;
+  border-radius: 4px;
+
+}
+
+.edit-trip-input-field:hover,
+.edit-trip-input-field:active,
+.edit-trip-input-field:focus,
+.edit-trip-input-field:focus-visible,
+.edit-trip-input-field:focus-within {
+  border-color: #337152;
+}
+
+.edit-trip {
+  color: #337152;
+}
+
+/*  TRIP CARD DETAIL  */
+
+.trip-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  align-items: space-evenly;
+  margin: 5px;
+  padding-left: 0px;
+  /* align-items: left; */
+  /* width: 90px; */
+  columns: 3;
+  -webkit-columns: 3;
+  -moz-columns: 3;
+  align-content: left;
+ 
+}
+
+.trip-detail-card {
+  background-color: white;
+  border-radius: 0.25rem;
+  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
+  display: grid;
+  flex-direction: column;
+  overflow: hidden;
+  margin-left: 8px;
+  margin-top: 10px;
+  width: 150px;
+  height: 190px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.park-name-create{
+  margin-bottom: -14px;
+  padding-top: 10px;;
+}
+
+.activities {
+  font-size: 15px;
+  line-height: 1.5;
 }

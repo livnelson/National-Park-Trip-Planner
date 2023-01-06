@@ -134,15 +134,7 @@ function CreateTrip({ user, fullname, id, activityNames, mappedImages, activitie
       <div className="user-card">
         <div className="user-form">
           <form onSubmit={handleSaveTrip}>
-            <input
-              className="user-input-field"
-              name="fullname"
-              type="text"
-              value={fullname}
-              placeholder={fullname}
-              //onChange={handleDestinationChange}
-              required
-            />
+            <h4 className="park-name-create">{fullname}</h4>
             <br />
             <input
               className="user-input-field"

@@ -41,7 +41,7 @@ function Trip({ id, trip, deleteTrip, user, updateTrip, apiPark_id }) {
   return (
     <div>
       {editTrip ? <EditTrip key={id} id={id} fullname={fullname} user={user} trip={trip} /> : <div className="cards">
-        <div className="card">
+        <div className="trip-detail-card">
           <h4 className="cards__item">{fullname}</h4>
           <p className="card__text"><strong>Start Date:</strong> <br />{start_date}</p>
           <p className="card__text"><strong>End Date:</strong> <br />{end_date}</p>

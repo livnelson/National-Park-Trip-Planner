@@ -28,14 +28,14 @@ function EditTrip({ user, fullname, trip, activityNames, activities, apiPark_id 
     function handleEditTrip(e) {
         e.preventDefault()
 
-        //console.log(user)
+        console.log(trip)
 
         const configTrip = {
-            trip_id: trip.id,
             fullname,
             start_date: startDate,
             end_date: endDate,
-            user_id: user.id
+            user_id: user.id,
+            trip_id: trip.id,
         }
 
         console.log(configTrip)
@@ -63,14 +63,14 @@ function EditTrip({ user, fullname, trip, activityNames, activities, apiPark_id 
 
     return (
         <div>
-            <h3>Create a Trip</h3>
-            <div className="user-card">
+            <div className="edit-trip-form">
+            <h5 className="edit-trip">Update Your Trip</h5>
                 <div className="user-form">
                     <form onSubmit={handleEditTrip}>
                         <h4>{fullname}</h4>
                         <br />
                         <input
-                            className="user-input-field"
+                            className="edit-trip-input-field"
                             name="start_date"
                             type="date"
                             value={startDate}
@@ -80,7 +80,7 @@ function EditTrip({ user, fullname, trip, activityNames, activities, apiPark_id 
                         />
                         <br />
                         <input
-                            className="user-input-field"
+                            className="edit-trip-input-field"
                             name="end_date"
                             type="date"
                             value={endDate}
