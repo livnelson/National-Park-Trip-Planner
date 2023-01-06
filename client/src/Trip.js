@@ -3,19 +3,19 @@ import React, { useState } from 'react'
 import EditTrip from './EditTrip'
 // import ViewTrip from './ViewTrip'
 
-function Trip({ id, trip, deleteTrip, user, updateTrip, apiPark_id }) {
+function Trip({ trip, deleteTrip, user, updateTrip, apiPark_id }) {
 
-  const { fullname, start_date, end_date } = trip
+  const { id, fullname, start_date, end_date } = trip
   console.log("Trip check")
 
   const history = useHistory()
-  // const params = useParams()
+  const params = useParams()
   const [editTrip, setEditTrip] = useState(false)
 
 
 
 
-  function handleDelete(id) {
+  function handleDelete() {
     fetch(`/trips/${trip.id}`, {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' }

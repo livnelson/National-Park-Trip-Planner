@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function EditTrip({ user, fullname, trip, activityNames, activities, apiPark_id }) {
+function EditTrip({ id, user, fullname, trip, activityNames, activities, apiPark_id }) {
     const [errors, setErrors] = useState([])
     const [userActivities, setUserActivities] = useState({})
     const [startDate, setStartDate] = useState('')
@@ -35,13 +35,12 @@ function EditTrip({ user, fullname, trip, activityNames, activities, apiPark_id 
             start_date: startDate,
             end_date: endDate,
             user_id: user.id,
-            trip_id: trip.id,
         }
 
         console.log(configTrip)
 
 
-        fetch(`/updatetrip/${user.id}`, {
+        fetch(`/updatetrip/${trip.id}`, {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(configTrip)
