@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import EditTrip from './EditTrip'
 // import ViewTrip from './ViewTrip'
 
-function Trip({ trip, deleteTrip, user, updateTrip, apiPark_id, checkedActivities }) {
+function Trip({ trip, deleteTrip, user, updateTrip, apiPark_id }) {
 
   const { id, fullname, start_date, end_date } = trip
   console.log("Trip check")
@@ -11,9 +11,6 @@ function Trip({ trip, deleteTrip, user, updateTrip, apiPark_id, checkedActivitie
   const history = useHistory()
   const params = useParams()
   const [editTrip, setEditTrip] = useState(false)
-
-
-
 
   function handleDelete() {
     fetch(`/trips/${trip.id}`, {
@@ -37,6 +34,8 @@ function Trip({ trip, deleteTrip, user, updateTrip, apiPark_id, checkedActivitie
     //history.push(`/`)
   }
 
+  // const tripActivities = checkedActivities.join(', ')
+
 
   return (
     <div>
@@ -45,7 +44,7 @@ function Trip({ trip, deleteTrip, user, updateTrip, apiPark_id, checkedActivitie
           <h4 className="cards__item">{fullname}</h4>
           <p className="card__text"><strong>Start Date:</strong> <br />{start_date}</p>
           <p className="card__text"><strong>End Date:</strong> <br />{end_date}</p>
-          <span>{checkedActivities}</span>
+          {/* <span>{tripActivities}</span> */}
           <span className="edit-icon" onClick={handleEdit}>✎</span>
           <span className="delete-icon" onClick={handleDelete}>⊗</span>
         </div>
