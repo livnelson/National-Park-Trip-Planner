@@ -10,7 +10,7 @@ function EditTrip({ user, fullname, trip, activityNames, activities, apiPark_id 
 
     let checkedActivities = []
 
-    console.log(apiPark_id)
+    // console.log(apiPark_id)
     //console.log(id)
 
     function handleStartDateChange(e) {
@@ -31,15 +31,17 @@ function EditTrip({ user, fullname, trip, activityNames, activities, apiPark_id 
         //console.log(user)
 
         const configTrip = {
+            trip_id: trip.id,
             fullname,
             start_date: startDate,
             end_date: endDate,
             user_id: user.id
         }
+
         console.log(configTrip)
 
 
-        fetch(`/updatetrip`, {
+        fetch(`/updatetrip/${user.id}`, {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(configTrip)
@@ -65,15 +67,7 @@ function EditTrip({ user, fullname, trip, activityNames, activities, apiPark_id 
             <div className="user-card">
                 <div className="user-form">
                     <form onSubmit={handleEditTrip}>
-                        <input
-                            className="user-input-field"
-                            name="fullname"
-                            type="text"
-                            value={fullname}
-                            placeholder={fullname}
-                            //onChange={handleDestinationChange}
-                            required
-                        />
+                        <h4>{fullname}</h4>
                         <br />
                         <input
                             className="user-input-field"
@@ -97,7 +91,7 @@ function EditTrip({ user, fullname, trip, activityNames, activities, apiPark_id 
                         <br />
 
                         <br />
-                        <button className="button" type="submit" >Save Your Trip</button>
+                        <button className="button" type="submit" >Update Your Trip</button>
                         {/* <button className="button" type="submit" >Save Your Trip</button> */}
                     </form>
                 </div>

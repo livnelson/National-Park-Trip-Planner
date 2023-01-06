@@ -49,7 +49,7 @@ function UserTrips({ user, parks }) {
 
   const mappedTrips = filteredTrips.map((trip) => {
     //console.log(trip)
-    return <Trip updateTrip={updateTrip} trip={trip} key={trip.id} deleteTrip={deleteTrip} user={user} apiPark_id={needParkId} />
+    return <Trip key={trip.id} updateTrip={updateTrip} trip={trip} deleteTrip={deleteTrip} user={user} apiPark_id={needParkId} />
   })
 
   return (

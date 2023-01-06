@@ -3,21 +3,20 @@ import React, { useState } from 'react'
 import EditTrip from './EditTrip'
 // import ViewTrip from './ViewTrip'
 
-function Trip({ trip, deleteTrip, user, updateTrip, apiPark_id }) {
+function Trip({ id, trip, deleteTrip, user, updateTrip, apiPark_id }) {
 
   const { fullname, start_date, end_date } = trip
   console.log("Trip check")
 
   const history = useHistory()
-  const params = useParams()
+  // const params = useParams()
   const [editTrip, setEditTrip] = useState(false)
 
 
 
 
-  function handleDelete() {
+  function handleDelete(id) {
     fetch(`/trips/${trip.id}`, {
-
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' }
     })
@@ -38,13 +37,10 @@ function Trip({ trip, deleteTrip, user, updateTrip, apiPark_id }) {
     //history.push(`/`)
   }
 
-  // <ViewTrip handleEdit={handleEdit} trip={trip} user={user} updateTrip={updateTrip} deleteTrip={deleteTrip}/>
-
-  //setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
 
   return (
     <div>
-      {editTrip ? <EditTrip fullname={fullname} user={user} trip={trip} apiPark_id={apiPark_id} /> : <div className="cards">
+      {editTrip ? <EditTrip key={id} id={id} fullname={fullname} user={user} trip={trip} /> : <div className="cards">
         <div className="card">
           <h4 className="cards__item">{fullname}</h4>
           <p className="card__text"><strong>Start Date:</strong> <br />{start_date}</p>
