@@ -5,7 +5,6 @@ class CreateTrips < ActiveRecord::Migration[7.0]
       t.string :start_date
       t.string :end_date
       t.belongs_to :user
-      t.string :apiPark_id
       t.timestamps
     end
   end

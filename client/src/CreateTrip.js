@@ -62,14 +62,14 @@ function CreateTrip({ user, fullname, id, activityNames, mappedImages, activitie
       start_date: startDate,
       end_date: endDate,
       user_id: user.id,
-      apiPark_id: id
+      //apiPark_id: id
     }
     console.log(configTrip)
 
     const configActivities = {
 
       name: checkedActivities.join(", "),
-      apiPark_id: id
+      //apiPark_id: id
     }
 
     console.log(configActivities)

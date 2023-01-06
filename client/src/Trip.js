@@ -1,5 +1,6 @@
 import { useHistory, useParams, Link } from 'react-router-dom'
-import React from 'react'
+import React, { useState } from 'react'
+import EditTrip from './EditTrip'
 // import ViewTrip from './ViewTrip'
 
 function Trip({ trip, deleteTrip, user, updateTrip, apiPark_id }) {
@@ -9,6 +10,8 @@ function Trip({ trip, deleteTrip, user, updateTrip, apiPark_id }) {
 
   const history = useHistory()
   const params = useParams()
+  const [editTrip, setEditTrip] = useState(false)
+
 
 
 
@@ -30,8 +33,9 @@ function Trip({ trip, deleteTrip, user, updateTrip, apiPark_id }) {
   }
 
   function handleEdit() {
+    setEditTrip(!editTrip)
     // history.push(`/ViewTrip/${trip.id}`)
-    history.push(`/`)
+    //history.push(`/`)
   }
 
   // <ViewTrip handleEdit={handleEdit} trip={trip} user={user} updateTrip={updateTrip} deleteTrip={deleteTrip}/>
@@ -39,17 +43,18 @@ function Trip({ trip, deleteTrip, user, updateTrip, apiPark_id }) {
   //setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
 
   return (
-    <div className="cards">
-      <div className="card">
-        {/* <img src={dest_img} alt={destination} className="card__image" /> */}
-        <h4 className="cards__item">{fullname}</h4>
-        <p className="card__text"><strong>Start Date:</strong> <br />{start_date}</p>
-        <p className="card__text"><strong>End Date:</strong> <br />{end_date}</p>
-        <span className="edit-icon" onClick={handleEdit}>✎</span>
-        <span className="delete-icon" onClick={handleDelete}>⊗</span>
-        {/* <Link to="/ViewTrip" onClick={handleEdit} >View Trip</Link> */}
-        {/* <button onClick={handleEdit} >View Trip</button> */}
+    <div>
+      {editTrip ? <EditTrip fullname={fullname} user={user} trip={trip} apiPark_id={apiPark_id} /> : <div className="cards">
+        <div className="card">
+          <h4 className="cards__item">{fullname}</h4>
+          <p className="card__text"><strong>Start Date:</strong> <br />{start_date}</p>
+          <p className="card__text"><strong>End Date:</strong> <br />{end_date}</p>
+          <span className="edit-icon" onClick={handleEdit}>✎</span>
+          <span className="delete-icon" onClick={handleDelete}>⊗</span>
+        </div>
+
       </div>
+      }
     </div>
   )
 }

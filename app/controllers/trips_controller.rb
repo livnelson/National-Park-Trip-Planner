@@ -18,10 +18,16 @@ def destroy
     head :no_content
 end
 
+def update 
+    trip = Trip.find(params[:id])
+    trip.update!(trip_params)
+    render json: trip, status: :accepted
+end
+
 private
 
 def trip_params
-    params.permit(:fullname, :start_date, :end_date, :user_id, :apiPark_id)
+    params.permit(:fullname, :start_date, :end_date, :user_id)
 end
 
 end

@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   get "/alltrips", to: "trips#index"
   get "/trip", to: "activities#show"
   post "/newactivities", to: "activities#create"
+  patch "/updatetrip", to: "trips#update"
 end
