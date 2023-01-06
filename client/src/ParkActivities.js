@@ -4,26 +4,18 @@ import React, { useState } from 'react'
 function ParkActivities({ activity, checkedActivities }) {
 
     // const [isChecked, setIsChecked] = useState("checked")
-    const [isChecked, setIsChecked] = useState(true)
+    const [isChecked, setIsChecked] = useState(false)
+
+
 
     function handleChange() {
         setIsChecked(!isChecked)
-            console.log(isChecked)
-
-        // if (isChecked === "checked") {
-        //     setIsChecked("unchecked")
-        //     // checkedActivities.push(activity)
-        //     // console.log(checkedActivities)
-        // }
-        // else setIsChecked("checked")
-        // // console.log(activity)
-        // // if (isChecked
-        // // setIsChecked(!isChecked)
-        // // return true
+        console.log(isChecked)
     }
 
+    checkForChecks()
+
     function checkForChecks() {
-        handleChange()
         if (isChecked === true) {
             checkedActivities.push(activity)
         }
@@ -37,15 +29,28 @@ function ParkActivities({ activity, checkedActivities }) {
     }
 
 
+
     console.log(checkedActivities)
 
     return (
         <div className="activities">
             {/* <input type="checkbox" onChange={checkForChecks} checked={isChecked === "checked"} /> */}
-            <input type="checkbox" onChange={checkForChecks} checked={isChecked} />
+            <input type="checkbox" onChange={handleChange} checked={isChecked} />
             <label>{activity}</label>
         </div>
     )
 }
 
 export default ParkActivities
+
+
+        // if (isChecked === "checked") {
+        //     setIsChecked("unchecked")
+        //     // checkedActivities.push(activity)
+        //     // console.log(checkedActivities)
+        // }
+        // else setIsChecked("checked")
+        // // console.log(activity)
+        // // if (isChecked
+        // // setIsChecked(!isChecked)
+        // // return true
