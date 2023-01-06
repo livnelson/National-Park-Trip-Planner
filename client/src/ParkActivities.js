@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 
-
 function ParkActivities({ activity, checkedActivities }) {
   // const [isChecked, setIsChecked] = useState("checked")
   const [isChecked, setIsChecked] = useState(false)
@@ -25,15 +24,11 @@ function ParkActivities({ activity, checkedActivities }) {
     }
   }
 
-
   console.log(checkedActivities)
 
   return (
     <div className="activities">
-      {/* <input type="checkbox" onChange={checkForChecks} checked={isChecked === "checked"} /> */}
-
       <input type="checkbox" id="checkbox-style" onChange={handleChange} checked={isChecked} />
-
       <label>{activity}</label>
     </div>
   )
