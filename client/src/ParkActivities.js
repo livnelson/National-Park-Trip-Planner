@@ -42,7 +42,7 @@ function ParkActivities({ activity, checkedActivities }) {
     return (
         <div className="activities">
             {/* <input type="checkbox" onChange={checkForChecks} checked={isChecked === "checked"} /> */}
-            <input type="checkbox" onChange={checkForChecks} checked={isChecked} />
+            <input type="checkbox" id="checkbox-style" onChange={checkForChecks} checked={isChecked} />
             <label>{activity}</label>
         </div>
     )

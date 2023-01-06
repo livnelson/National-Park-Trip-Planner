@@ -161,7 +161,7 @@ a:hover {
 .button {
   color: white;
   background-color: black;
-  width: 100%;
+  width: 98%;
   margin-top: 5px;
   padding-top: 6px;
   padding-bottom: 6px;
@@ -496,7 +496,7 @@ a:hover {
   font-size: 8px;
   font-weight: 300;
   color: #333;
-  letter-spacing: 0.25px;
+  letter-spacing: 0.35px;
 }
 
 ul {
@@ -554,6 +554,7 @@ ul {
   z-index: 9999;
   margin-top: 10px;
   margin-bottom: 10px;
+  width: 98%;
   color: white;
   background-color: black;
   margin-top: 10px;
@@ -670,4 +671,8 @@ ul {
 .activities {
   font-size: 15px;
   line-height: 1.5;
+}
+
+#checkbox-style:active{
+  color: #337152;
 }
