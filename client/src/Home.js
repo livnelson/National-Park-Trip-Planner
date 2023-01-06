@@ -7,7 +7,7 @@ function Home({ user }) {
   const [parks, setParks] = useState([])
 
   useEffect(() => {
-    fetch("https://developer.nps.gov/api/v1/parks?stateCode=CA&limit=20&sort=&api_key=ejj9Xj8WF8yyAFJIN0Ev3IL3cZrsbkT6CCg0JJ5s")
+    fetch("https://developer.nps.gov/api/v1/parks?stateCode=CA&limit=20&api_key=hQLUJV4Ctu79CYYc4YTuslyjKz36u5520OCQlXnF")
       .then((r) => r.json())
       .then((parksArray) => {
         console.log(parksArray.data);
