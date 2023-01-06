@@ -20,18 +20,6 @@ function Navbar({ user, setIsLoggedIn }) {
         src={user.profile_img}
         alt={user.username}
       />
-      {/* <NavLink
-        to="/Home"
-        exact
-        className="nav-link"
-      > Home
-      </NavLink>
-      <NavLink
-        to="/"
-        exact
-        className="nav-link"
-      > Log In
-      </NavLink> */}
       <Link
         to="/"
         onClick={handleLogout}

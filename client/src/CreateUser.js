@@ -122,7 +122,6 @@ function CreateUser() {
             <button className="button" type="submit">Create Account</button>
           </form>
         </div>
-          {/* {errors ? <div className="errors">{errors}</div> : null} */}
           <p className="back-link"><Link to="/">← Back to Log In</Link></p>
       </div>
     </div>

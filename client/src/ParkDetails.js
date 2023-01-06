@@ -53,7 +53,6 @@ function ParkDetails({ id, fullname, images, activities, addresses, description,
 
   return (
     <div className="park-detail-card">
-      {/* <h4>{fullname}</h4> */}
       <p className="park-description">{description}</p>
       <br />
       <span>{mappedAddresses}</span>

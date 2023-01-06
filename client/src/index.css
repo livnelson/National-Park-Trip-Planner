@@ -251,6 +251,7 @@ a:hover {
   margin: 0;
 }
 
+ 
 
 
 /* CREATE USER CARD */
@@ -300,114 +301,6 @@ a:hover {
   padding-bottom: 14px;
 }
 
-
-
-/*  TRIP CARD  */
-/* 
-.trip-card {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-bottom: 20px;
-}
-
-.trip-img {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  margin-right: 10px;
-} */
-
-
-
-/*  TESTING TRIP CARD */
-
-
-/* .cards {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-  margin-top: 10px;
-  margin-bottom: 20px;
-  padding: 0;
-  align-items: left;
-  justify-items: left;
-} */
-
-/* .cards__item {
-  display: flex;
-  padding: 1rem;
-  width: 35%;
-} */
-
-/* .card {
-  background-color: white;
-  border-radius: 0.25rem;
-  box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  margin-left: 4px;
-  width: 150px;
-  padding-left: 5px;
-  padding-right: 5px;
-} */
-
-/* .card__content {
-  display: flex;
-  flex: 1 1 auto;
-  flex-direction: column;
-  padding: 1rem;
-  justify-content: left;
-  align-content: left;
-  justify-items: center;
-  align-items: center;
-} */
-
-/* .card__image {
-  justify-content: center;
-  align-content: center;
-  justify-items: center;
-  align-items: center;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 70px;
-  height: 70px;
-  margin: auto;
-  padding-top: 10px;
-  padding-bottom: 7px;
-  border-radius: 50%;
-  filter: contrast(70%);
-  overflow: hidden;
-  transition: filter 0.5s cubic-bezier(.43, .41, .22, .91);
-} */
-
-/* .card__image:hover {
-  filter: contrast(100%);
-} */
-
-/* .card__title {
-  color: #696969;
-  font-size: 1.25rem;
-  font-weight: 300;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-} */
-
-/* .card__text,
-.card__detail p {
-  flex: 1 1 auto;
-  font-size: 11px;
-  line-height: 1.15;
-  margin-bottom: 0rem;
-} */
-
-/* .card__detail {
-  display: grid;
-  grid-template-columns: repeat(3, 3fr);
-} */
-
 .edit-icon {
   text-align: right;
   padding-left: 30px;
@@ -450,6 +343,11 @@ a:hover {
 }
 
 .park-name:active {
+  color: #337152;
+  cursor: pointer;
+}
+
+.park-name:focus {
   color: #337152;
   cursor: pointer;
 }
@@ -508,7 +406,6 @@ ul {
 .image-cards {
   display: flex;
   flex-wrap: wrap;
-  /* width: 90px; */
   columns: 3;
   -webkit-columns: 3;
   -moz-columns: 3;
@@ -517,11 +414,8 @@ ul {
 
 .image-card-style {
   width: 150px;
-  /* margin: 10px; */
   margin-top: 5px;
   margin-left: 12px;
-  /* padding-right: 10px; */
-
   justify-content: space-around;
 
 }
@@ -577,6 +471,9 @@ ul {
   z-index: 9999;
 }
 
+
+
+
 /*  EDIT TRIP FORM  */
 
 .edit-trip-form {
@@ -628,6 +525,8 @@ ul {
   color: #337152;
 }
 
+
+
 /*  TRIP CARD DETAIL  */
 
 .trip-cards {
@@ -656,16 +555,11 @@ ul {
   margin-left: 8px;
   margin-top: 10px;
   width: 150px;
-  height: 190px;
+  min-height: 190px;
   padding-left: 8px;
   padding-right: 8px;
   padding-bottom: 10px;
   padding-top: 10px;
-}
-
-.park-name-create{
-  margin-bottom: -14px;
-  padding-top: 10px;;
 }
 
 .activities {
@@ -675,4 +569,8 @@ ul {
 
 #checkbox-style:active{
   color: #337152;
+}
+
+.trip-title{
+  font-size: 15px;
 }

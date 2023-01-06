@@ -2,45 +2,41 @@ import React, { useState } from 'react'
 
 
 function ParkActivities({ activity, checkedActivities }) {
+  // const [isChecked, setIsChecked] = useState("checked")
+  const [isChecked, setIsChecked] = useState(false)
 
-    // const [isChecked, setIsChecked] = useState("checked")
-    const [isChecked, setIsChecked] = useState(false)
+  function handleChange() {
+    setIsChecked(!isChecked)
+    console.log(isChecked)
+  }
 
+  checkForChecks()
 
-
-    function handleChange() {
-        setIsChecked(!isChecked)
-        console.log(isChecked)
+  function checkForChecks() {
+    if (isChecked === true) {
+      checkedActivities.push(activity)
     }
-
-    checkForChecks()
-
-    function checkForChecks() {
-        if (isChecked === true) {
-            checkedActivities.push(activity)
+    else {
+      for (let i = 0; i < checkedActivities.length; i++) {
+        if (checkedActivities[i] === activity) {
+          checkedActivities.splice(i, 1)
         }
-        else {
-            for (let i = 0; i < checkedActivities.length; i++) {
-                if (checkedActivities[i] === activity) {
-                    checkedActivities.splice(i, 1)
-                }
-            }
-        }
+      }
     }
+  }
 
 
+  console.log(checkedActivities)
 
-    console.log(checkedActivities)
+  return (
+    <div className="activities">
+      {/* <input type="checkbox" onChange={checkForChecks} checked={isChecked === "checked"} /> */}
 
-    return (
-        <div className="activities">
-            {/* <input type="checkbox" onChange={checkForChecks} checked={isChecked === "checked"} /> */}
+      <input type="checkbox" id="checkbox-style" onChange={handleChange} checked={isChecked} />
 
-            <input type="checkbox" id="checkbox-style" onChange={handleChange} checked={isChecked} />
-
-            <label>{activity}</label>
-        </div>
-    )
+      <label>{activity}</label>
+    </div>
+  )
 }
 
 export default ParkActivities
