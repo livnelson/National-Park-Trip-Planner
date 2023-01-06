@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import CheckboxTree from "react-dynamic-checkbox-tree";
 import ParkActivities from './ParkActivities';
 
-function CreateTrip({ user, fullname, id, activityNames, mappedImages, activities }) {
+function CreateTrip({ user, fullname, id, activityNames, mappedImages, activities, checkedActivities }) {
   const [errors, setErrors] = useState([])
   const [trip, setTrip] = useState({})
   const [userActivities, setUserActivities] = useState({})
@@ -12,7 +12,7 @@ function CreateTrip({ user, fullname, id, activityNames, mappedImages, activitie
   const [destImg, setDestImg] = useState('')
   //const [checkBoxes, setCheckBoxes] = useState(null);
 
-  let checkedActivities = []
+  // let checkedActivities = []
   // const [formData, setFormData] = useState({
   //   destination: destination,
   //   start_date: startDate,

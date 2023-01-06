@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Trip from "./Trip"
 
 
-function UserTrips({ user, parks }) {
+function UserTrips({ user, parks, checkedActivities }) {
 
   const [trips, setTrips] = useState([])
   const [trip, setTrip] = useState({})
@@ -49,7 +49,7 @@ function UserTrips({ user, parks }) {
 
   const mappedTrips = filteredTrips.map((trip) => {
     //console.log(trip)
-    return <Trip key={trip.id} updateTrip={updateTrip} trip={trip} deleteTrip={deleteTrip} user={user} apiPark_id={needParkId} />
+    return <Trip key={trip.id} updateTrip={updateTrip} trip={trip} deleteTrip={deleteTrip} user={user} apiPark_id={needParkId} checkedActivities={checkedActivities} />
   })
 
   return (

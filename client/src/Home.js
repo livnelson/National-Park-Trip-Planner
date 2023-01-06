@@ -15,15 +15,17 @@ function Home({ user }) {
       });
   }, []);
 
+  let checkedActivities = []
+
   return (
     <div className='home-page'>
       <h1 className='greeting'>Welcome, {user.first_name}!</h1>
       <br />
       <h3 className='subheading'>Your Saved Trips</h3>
-      <UserTrips user={user} parks={parks} />
+      <UserTrips user={user} parks={parks} checkedActivities={checkedActivities}/>
       <br />
       <h3 className='subheading'>Browse through Popular National Park Locations</h3>
-      <NattyParks parks={parks} user={user} />
+      <NattyParks parks={parks} user={user} checkedActivities={checkedActivities}/>
       {/* <CreateTrip user={user} /> */}
     </div>
   );

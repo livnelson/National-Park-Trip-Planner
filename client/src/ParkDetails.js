@@ -3,7 +3,7 @@ import CreateTrip from './CreateTrip'
 import ParkActivities from './ParkActivities'
 
 
-function ParkDetails({ id, fullname, images, activities, addresses, description, directionsUrl, user }) {
+function ParkDetails({ id, fullname, images, activities, addresses, description, directionsUrl, user, checkedActivities }) {
   const [viewCreate, setViewCreate] = useState(false)
   const filteredAddresses = addresses.filter(address => {
     if (address.type === "Physical")
@@ -70,7 +70,8 @@ function ParkDetails({ id, fullname, images, activities, addresses, description,
       </div>
       <br />
       {viewCreate ? 
-      <CreateTrip fullname={fullname} id={id} activityNames={activityNames} mappedImages={mappedImages} user={user} activities={activities} /> :
+      <CreateTrip fullname={fullname} id={id} activityNames={activityNames} mappedImages={mappedImages} user={user} activities={activities} checkedActivities={checkedActivities}
+      /> :
       <button className="save-button" onClick={toggleViewCreate}>Create a Trip</button>
       }
       </div>
