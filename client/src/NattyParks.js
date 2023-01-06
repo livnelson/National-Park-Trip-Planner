@@ -1,11 +1,14 @@
 import React from 'react'
 import Park from './Park'
+// import UserTrips from './UserTrips'
 
 
-export default function NattyParks({ parks, user, checkedActivities }) {
+export default function NattyParks({ parks, user }) {
 
     // console.log(parks)
     // console.log(filteredParks)
+
+    let checkedActivities = []
 
     const mappedParks = parks.map((park) => {
         //console.log("Name: " + park.fullName)
@@ -28,6 +31,7 @@ export default function NattyParks({ parks, user, checkedActivities }) {
 
     return (
         <div>
+            {/* <UserTrips user={user} parks={parks} checkedActivities={checkedActivities}/> */}
             {mappedParks}
             <br />
         </div>

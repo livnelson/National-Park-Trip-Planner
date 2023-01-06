@@ -44,6 +44,7 @@ function Trip({ trip, deleteTrip, user, updateTrip, apiPark_id }) {
           <h4 className="cards__item">{fullname}</h4>
           <p className="card__text"><strong>Start Date:</strong> <br />{start_date}</p>
           <p className="card__text"><strong>End Date:</strong> <br />{end_date}</p>
+          <p className="card__text"><strong>Activities:</strong><br />{trip.activities}</p>
           {/* <span>{tripActivities}</span> */}
           <span className="edit-icon" onClick={handleEdit}>✎</span>
           <span className="delete-icon" onClick={handleDelete}>⊗</span>

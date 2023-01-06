@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
 import CreateTrip from './CreateTrip'
-import ParkActivities from './ParkActivities'
-
 
 function ParkDetails({ id, fullname, images, activities, addresses, description, directionsUrl, user, checkedActivities }) {
   const [viewCreate, setViewCreate] = useState(false)
@@ -10,7 +8,7 @@ function ParkDetails({ id, fullname, images, activities, addresses, description,
       return true
   })
 
-  function toggleViewCreate(){
+  function toggleViewCreate() {
     setViewCreate(!viewCreate)
   }
   console.log(activities)
@@ -69,15 +67,13 @@ function ParkDetails({ id, fullname, images, activities, addresses, description,
         <span className="image-cards">{mappedImages}</span>
       </div>
       <br />
-      {viewCreate ? 
-      <CreateTrip fullname={fullname} id={id} activityNames={activityNames} mappedImages={mappedImages} user={user} activities={activities} checkedActivities={checkedActivities}
-      /> :
-      <button className="save-button" onClick={toggleViewCreate}>Create a Trip</button>
+      {viewCreate ?
+        <CreateTrip key={id} fullname={fullname} id={id} activityNames={activityNames} mappedImages={mappedImages} user={user} activities={activities} checkedActivities={checkedActivities}
+        /> :
+        <button className="save-button" onClick={toggleViewCreate}>Create a Trip</button>
       }
-      </div>
+    </div>
   )
-
 }
-
 
 export default ParkDetails

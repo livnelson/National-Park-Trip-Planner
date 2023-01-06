@@ -16,14 +16,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_05_170403) do
 
   create_table "activities", force: :cascade do |t|
     t.string "name"
+    t.bigint "trip_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["trip_id"], name: "index_activities_on_trip_id"
   end
 
   create_table "trips", force: :cascade do |t|
     t.string "fullname"
     t.string "start_date"
     t.string "end_date"
+    t.string "activities"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

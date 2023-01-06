@@ -8,7 +8,7 @@ class ActivitiesController < ApplicationController
     private
     
     def activities_params
-        params.permit(:name)
+        params.permit(:nam, :trip_id)
     end
 
 end
