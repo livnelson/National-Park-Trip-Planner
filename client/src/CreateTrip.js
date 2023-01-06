@@ -9,7 +9,9 @@ function CreateTrip({ user, fullname, id, activityNames, mappedImages, activitie
   const [startDate, setStartDate] = useState('')
   const [endDate, setEndDate] = useState('')
   const [destImg, setDestImg] = useState('')
-  const [checkBoxes, setCheckBoxes] = useState([]);
+  //const [checkBoxes, setCheckBoxes] = useState(null);
+
+  let checkedActivities = []
   // const [formData, setFormData] = useState({
   //   destination: destination,
   //   start_date: startDate,
@@ -36,16 +38,9 @@ function CreateTrip({ user, fullname, id, activityNames, mappedImages, activitie
     setDestImg(e.target.value)
   }
 
-
-
-
   // const handleChange = (e) => {
   //   const { name, value } = e.target
   //   setFormData({ ...formData, [name]: value })
-
-
-  //console.log(activityNames)
-
 
   const mappedActivities = activities.map(activity => {
     return activity.name
@@ -72,9 +67,12 @@ function CreateTrip({ user, fullname, id, activityNames, mappedImages, activitie
     console.log(configTrip)
 
     const configActivities = {
-      name: mappedActivities,
+
+      name: checkedActivities.join(","),
       apiPark_id: id
     }
+
+    console.log(configActivities)
 
     fetch(`/newtrip`, {
       method: 'POST',
@@ -152,7 +150,21 @@ function CreateTrip({ user, fullname, id, activityNames, mappedImages, activitie
               required
             />
             <br />
-            {/* <div>
+
+            <br />
+            {activityNames.map(activity => <ParkActivities activity={activity} checkedActivities={checkedActivities} />)}
+            <button className="button" type="submit" >Save Your Trip</button>
+            {/* <button className="button" type="submit" >Save Your Trip</button> */}
+          </form>
+        </div>
+      </div>
+    </div >
+  )
+}
+
+export default CreateTrip
+
+{/* <div>
               {mappedActivities.map((cb, index) => (
                 <div key={index}>
                   <input
@@ -166,8 +178,8 @@ function CreateTrip({ user, fullname, id, activityNames, mappedImages, activitie
               ))}
             </div> */}
 
-            {/* {mappedParkActivities} */}
-            {/* <div>
+{/* {mappedParkActivities} */ }
+{/* <div>
               <CheckboxTree
                 nodes={mappedActivities}
                 checked={checked}
@@ -177,7 +189,7 @@ function CreateTrip({ user, fullname, id, activityNames, mappedImages, activitie
             {checked.map((prop) => (
               <li key={prop}>value: {prop}</li>
             ))} */}
-            {/* <input
+{/* <input
                         className="user-input-field"
                         name="park_activity"
                         type="checkbox"
@@ -186,14 +198,3 @@ function CreateTrip({ user, fullname, id, activityNames, mappedImages, activitie
                         onChange={handleActivityChange}
                         required
                       /> */}
-            <br />
-            {activityNames.map(activity => <ParkActivities activity={activity} />)}
-            <button className="button" type="submit" >Save Your Trip</button>
-          </form>
-        </div>
-      </div>
-    </div >
-  )
-}
-
-export default CreateTrip
