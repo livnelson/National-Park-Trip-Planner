@@ -32,7 +32,7 @@ function ParkDetails({ id, fullname, images, activities, addresses, description,
         <img src={image.url} alt={image.altText} className="park-card-image" />
         <p>{image.title}</p>
         {/* <p>{image.caption}</p> */}
-        <p className="photo-cred">{image.credit}</p>
+        <p className="photo-cred"> Photo Credit: {image.credit}</p>
       </div>
     )
   })
@@ -51,20 +51,11 @@ function ParkDetails({ id, fullname, images, activities, addresses, description,
   // console.log(addresses)
   // console.log(description)
 
-  // function saveTrip() {
-
-  //   // const mappedActivitiesToo = activities.map(activity => {
-  //   //   return <li>{activity.name}</li>
-  //   // })
-  //   console.log(`Save button clicked, trip id: ${id}, name: ${fullname}, activities: ${activities}`)
-  // }
-
-  //console.log(`Save button clicked, trip id: ${id}, name: ${fullname}, activities: ${saveTrip}`)
   console.log(mappedActivities)
 
   return (
     <div className="park-detail-card">
-      <h4>{fullname}</h4>
+      {/* <h4>{fullname}</h4> */}
       <p className="park-description">{description}</p>
       <br />
       <span>{mappedAddresses}</span>
