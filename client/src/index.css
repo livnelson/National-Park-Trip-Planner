@@ -197,7 +197,7 @@ a:hover {
 }
 
 .subheading {
-  padding-top: 10px;
+  padding-top: 20px;
 }
 
 
@@ -247,6 +247,7 @@ a:hover {
 .errors {
   text-align: center;
   font-size: 15px;
+  font-weight: 300;
   color: crimson;
   margin: 0;
 }
@@ -573,4 +574,10 @@ ul {
 
 .trip-title{
   font-size: 15px;
+}
+
+#click-details {
+  font-size: 11px;
+  color: #337152;
+  padding-bottom: 10px;
 }

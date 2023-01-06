@@ -25,9 +25,9 @@ function Home({ user }) {
       <h3 className='subheading'>Your Saved Trips</h3>
       <UserTrips user={user} parks={parks} checkedActivities={checkedActivities}/>
       <br />
-      <h3 className='subheading'>Browse through Popular National Park Locations</h3>
+      <h3 className='subheading'>California National Park Locations</h3>
+      <p id="click-details">｛ <em>Click Park Name for Details</em> ｝</p>
       <NattyParks parks={parks} user={user}/>
-      {/* <CreateTrip user={user} /> */}
     </div>
   );
 }
